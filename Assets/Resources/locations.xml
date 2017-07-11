@@ -1,0 +1,780 @@
+<locations>
+    <start>
+    <text>С 461 года до н.э. Афины под управлением великого Перикла достигают пика своего могущества, затмевая собой древнюю Спарту. Образованный ими Делосский союз, куда насильно включались многие полисы, начинает угрожать интересам Пелопонесского союза, возглавляемого Спартой.
+Это приводит к величайшей войне в Элладе.
+</text>
+    <actions>
+        <action>
+            <_text>Next</_text>
+            <location>part2</location>
+        </action>
+    </actions>
+    </start>
+
+    <part2>
+    <text>Я никогда не видел моего отца. Он погиб до моего рождения от рук врагов Спарты. В семь лет я лишился матери и братьев, оказавшись в жесткой конкуренции среди таких же, как я. Я возненавидел этот строй. Я возненавидел своих Царей и мучителей.
+</text>
+    <actions>
+        <action>
+            <_text>Next</_text>
+            <location>part3</location>
+        </action>
+    </actions>
+    </part2>
+
+    <part3>
+    <text>Прошло тринадцать лет, и лишь вступил я в ранг полноправных спартиатов, как развязалась война с Делосским союзом. Вот он, шанс сбежать из этой машины смерти.
+</text>
+    <actions>
+        <action>
+            <_text>Next</_text>
+            <location>part4</location>
+        </action>
+    </actions>
+    </part3>
+
+        <part4>
+    <text>Афины всегда гордились своим флотом. Но никто не сравнится с Спартанскими гоплитами в пешем бою. Наши стройные ряды без особых усилий углублялись вглубь Аттики, планируя так же легко взять Афины.
+</text>
+    <actions>
+        <action>
+            <_text>Next</_text>
+            <location>part5</location>
+        </action>
+    </actions>
+    </part4>
+
+    <part5>
+    <text>Наконец нам дали полноценный бой на подступах к небольшому городку Платеи. Две армии расположились на холмах друг напротив друга, разделенных полем с небольшим лесом по левому флангу.
+</text>
+    <actions>
+        <action>
+            <_text>Next</_text>
+            <location>part6</location>
+        </action>
+    </actions>
+    </part5>
+
+    <part6>
+    <text>А вот и Афиняне на горизонте. Лес, лес, я вижу его. Прекрасная возможность сбежать. Придется сделать круг, но… надеюсь, что меня никто не заметит.</text>
+    <actions>
+        <action>
+            <text>Осмотреться вокруг</text>
+            <location>part7_1</location>
+        </action>
+        <action>
+            <text>Бежать из лагеря к лесу</text>
+            <location>part7_2</location>
+        </action>
+    </actions>
+    </part6>
+
+
+    <part7_1>
+    <text>Все заняты подготовкой к предстоящему сражению, не похоже, чтобы мне что-то грозило.</text>
+    <actions>
+        <action>
+            <text>Броситься бегом</text>
+            <location>part8_1</location>
+        </action>
+        <action>
+            <text>Продолжить шаг</text>
+            <location>part8_2</location>
+        </action>
+    </actions>
+    </part7_1>
+
+    <part7_2>
+    <text>Собрав свои скудные пожитки, я медленно пошел в сторону выхода из лагеря, ведущего на темные деревья.</text>
+    <actions copy="part7_1">
+    </actions>
+    </part7_2>
+
+
+    <part8_1>
+    <text>Кто-то заметил меня и поднял людей, развернувшись, я видел как кто-то натягивал тетиву, но меня приказали отпустить. Чувствую, что даром это не пройдет.</text>
+    <actions>
+        <action>
+            <_text>Next</_text>
+            <location>part9</location>
+        </action>
+    </actions>
+    </part8_1>
+
+    <part8_2>
+    <text>Возможно, кто-то и заметил уходящего в лес Спартанца, но не придал этому никакого весомого значения.</text>
+    <actions copy="part8_1">
+    </actions>
+    </part8_2>
+
+    <part9>
+    <text>Прошло не более двух часов, когда я добрался туда.</text>
+    <actions>
+        <action>
+            <text>Выкинуть щит</text>
+            <location>part10_1</location>
+        </action>
+        <action>
+            <text>Оставить его</text>
+            <location>part10_2</location>
+        </action>
+    </actions>
+    </part9>
+
+
+    <part10_1>
+    <text>Я подошел к их лагерю, и никто не обратил на меня внимания, неужто Афиняне столь безответственны и разобщены, что не удивлены дополнительному богатому бойцу в своих рядах?
+    Мне предстоит найти великого Перикла, дабы присягнуть ему на верность и вступить в ряды Афинских солдат.</text>
+    <actions>
+        <action>
+            <_text>Next</_text>
+            <location>part11_1</location>
+        </action>
+    </actions>
+    </part10_1>
+
+    <part10_2>
+    <text>Я не успел пройти и десятка шагов из леса, как наткнулся на десяток натянутых луков, направленных на меня.
+- Что тебе нужно, спартанец? - Голос демократа был холоден и груб, но не источал злости или ненависти.</text>
+    <actions>
+        <action>
+            <_text>Вступить в Афинскую армию</_text>
+            <location>part11</location>
+        </action>
+        <action>
+            <text>Я не шпион</text>
+            <location>part11</location>
+        </action>
+    </actions>
+    </part10_2>
+
+    <part11_1>
+    <text>На мою удачу, прямо посередь лагеря возвышался высокий шатер, похожий на ставку главнокомандующего.</text>
+    <actions>
+        <action>
+            <text>Войти в шатер</text>
+            <location>part14</location>
+            <variable name="VoshelVShater">true</variable>
+        </action>
+        <action>
+            <text>Заглянуть в шатер</text>
+            <location>part14</location>
+            <variable name="VoshelVShater">false</variable>
+        </action>
+    </actions>
+    </part11_1>
+
+    <part11>
+    <text>- Я намерен вступить в ряды Афинских солдат!
+- С чего бы нам тебе верить, что ты не шпион?</text>
+    <actions>
+        <action>
+            <_text>- Присягну на верность</_text>
+            <location>part12_1</location>
+        </action>
+        <action>
+            <text>Откинуть оружие</text>
+            <location>part12_2</location>
+        </action>
+    </actions>
+    </part11>
+
+    <part12_1>
+    <text>- Я присягну на верность вашему полководцу.
+    - Благое намерение.
+    - Что ж, мы поверим на слово спартанскому юноше и отведем тебя к Стратегу.</text>
+    <actions>
+        <action>
+            <_text>Next</_text>
+            <location>part13</location>
+        </action>
+    </actions>
+    </part12_1>
+
+    <part12_2>
+    <text>- Я пришел в ваш лагерь с миром и покину его только с Афинским львом на моем щите!
+    - Что ж, мы поверим на слово спартанскому юноше и отведем тебя к Стратегу.</text>
+    <actions copy="part12_1">
+    </actions>
+    </part12_2>
+
+    <part13>
+    <text>Двое афинян, похожих руками на крестьян, привели меня к высокому шатру и встали позади меня, перекрыв все пути отступления.</text>
+    <actions>
+        <action>
+            <text>Войти в шатер</text>
+            <location>part14</location>
+            <variable name="VoshelVShater">true</variable>
+        </action>
+    </actions>
+    </part13>
+
+    <part14>
+    <text>Двое офицеров стояли пред Периклом, они бурно что-то обсуждали, прислушавшись к их словам, стало ясно, что темой разговора стало численное и военное превосходство Пелопонессцев в грядущем сражении.</text>
+    <actions>
+        <action>
+            <_text>Next</_text>
+            <location>part15</location>
+        </action>
+    </actions>
+    </part14>
+
+    <part15>
+    <text>- За нами Платеи! За нами Афины! Мы не можем отступить!
+- Никто не вспомнит про Платеи! Важнее войско сохранить и дать решающее сражение на море, а не суше, где шансов мало у Афин!
+- Замарать свою честь позором отступления и бегства я не намерен!
+- Ты отступишь вместе со мной, союзный офицер, поскольку здесь я Главнокомандующий. Афины - пристанище логики и философии, и наша сила в нашем флоте.</text>
+    <actions>
+        <action>
+            <_text>Next</_text>
+            <location>part16_1</location>
+            <conditions>
+                <variable name="VoshelVShater">true</variable>
+            </conditions>
+        </action>
+        <action>
+            <_text>Next</_text>
+            <location>part16_2</location>
+            <conditions>
+                <variable name="VoshelVShater">false</variable>
+            </conditions>
+        </action>
+    </actions>
+    </part15>
+
+    <part16_1>
+    <text>Офицеры скрылись из шатра, слегка задев меня плечом.
+И вот, остались мы наедине.</text>
+    <actions>
+        <action>
+            <_text>Next</_text>
+            <location>part17</location>
+        </action>
+    </actions>
+    </part16_1>
+
+    <part16_2>
+    <text>Офицеры вышли, кинув на меня злобные взгляды.</text>
+    <actions>
+        <action>
+            <text>Войти в шатер</text>
+            <location>part16_21</location>
+        </action>
+    </actions>
+    </part16_2>
+
+    <part16_21>
+    <text>Я вошел в шатер и встретился взглядом лицом к лицу с Периклом.</text>
+    <actions copy="part16_1">
+    </actions>
+    </part16_21>
+
+    <part17>
+    <text>Он не выглядел каким-то величайшим, нет, взгляд его был полон мудрости, а тело украшено боевыми шрамами, оставленными врагом. Он был выправлен и горд, но горд благородно, горд за свою державу. Был благоразумен и жесток, но жестокость его была оправдана.</text>
+    <actions>
+       <action>
+            <_text>Присягнуть</_text>
+            <location>part18</location>
+        </action>
+    </actions>
+    </part17>
+
+    <part18>
+    <text>- Я желаю присягнуть на верность Афинам и ее войскам, о великий Перикл!
+    - Чей же ты, сын? Какой полис имеет честь называться твоей Родиной?</text>
+    <actions>
+       <action>
+            <text>- Спарта - мой дом</text>
+            <location>part19_1</location>
+        </action>
+        <action>
+            <text>- Из Афин я.</text>
+            <location>part19_2</location>
+        </action>
+    </actions>
+    </part18>
+    
+    <part19_1>
+    <text>- Прямая правда не всего есть хорошо, друг мой. Что же побудило тебя предать свой народ?</text>
+    <actions>
+       <action>
+            <_text>Консерватизм</_text>
+            <location>part19_1_1</location>
+        </action>
+        <action>
+            <_text>Разлука с семьей</_text>
+            <location>part19_1_2</location>
+        </action>
+    </actions>
+    </part19_1>
+
+    <part19_1_1>
+    <text>- Консерватизм не спасет страну от разложения и внутреннего врага.
+- В тебе говорит политик, но исправлять дела такие нужно изнутри, а не снаружи.</text>
+    <actions>
+       <action>
+            <_text>Next</_text>
+            <location>part20</location>
+        </action>
+    </actions>
+    </part19_1_1>
+
+    <part19_1_2>
+    <text>- Меня разлучили с матерью, братьями и сестрами, а отец погиб до моего рождения, чего мне еще ждать от этой страны?
+- Если ты столь предан семье, то как намерен поднять свой меч на нее?</text>
+    <actions copy="part19_1_1">
+    </actions>
+    </part19_1_2>
+
+    <part19_2>
+    <text>- Да как же ты попал сюда, если войско покинуло Афины недели две назад?</text>
+    <actions>
+       <action>
+            <_text>Родители</_text>
+            <location>part19_21</location>
+        </action>
+    </actions>
+    </part19_2>
+
+    <part19_21>
+    <text>- Родители долго противились моему уходу на защиту своей Родины, но мне удалось их уговорить.
+- А не сбежал ли ты часом?</text>
+    <actions>
+       <action>
+            <_text>Next</_text>
+            <location>part20</location>
+        </action>
+    </actions>
+    </part19_21>
+
+    <part20>
+    <text>- Так и быть, если ты столь уверен в необходимости этого поступка, то я приму твою присягу.
+Отныне Афины - твой дом, твоя родина. И по окончанию войны я позабочусь о твоем светлом будущем, гражданин.
+Ступай, возьми свой новый щит и замени перья на своем шлеме, знающий человек догадается, где он был произведен.</text>
+    <actions>
+       <action>
+            <_text>Next</_text>
+            <location>part21</location>
+        </action>
+    </actions>
+    </part20>
+
+    <part21>
+    <text>Мы долго отступали. Гонцы несли благие вести с моря, а Спартанская армия шла по пятам, не отставая ни на шаг. Перикл хотел, чтобы я лично доставил послание Совету Четырехсот, когда мы увидим стены Афин на горизонте. И вот, этот день пришел.</text>
+    <actions>
+       <action>
+            <_text>Next</_text>
+            <location>part22</location>
+        </action>
+    </actions>
+    </part21>
+
+    <part22>
+    <text>Когда я прибыл в город и отдал послание, то узнал печальные вести. Войска Перикла потерпели сокрушительное поражение, а остатки сбежали за стены. Началась долгая осада, голод и страх пришли в этот город. Я впервые был в Афинах, но узреть величие этого полиса, увы, не мог. Что-то терзало мое сердце.</text>
+    <actions>
+       <action>
+            <_text>Next</_text>
+            <location>part23</location>
+        </action>
+    </actions>
+    </part22>
+
+    <part23>
+    <text>Пришли вести о смерти Перикла от начинавшейся в городе чумы. Это стало последней каплей для меня. Я больше не могу сидеть сложа руки. Я произнесу речь и соберу народ на бой.</text>
+    <actions>
+       <action>
+            <_text>Next</_text>
+            <location>part24</location>
+        </action>
+    </actions>
+    </part23>
+
+    <part24>
+    <text>Сыны Афин,</text>
+    <actions>
+       <action>
+            <_text>Не прятаться</_text>
+            <location>part25_1</location>
+        </action>
+        <action>
+            <_text>Время сражаться</_text>
+            <location>part25_2</location>
+        </action>
+    </actions>
+    </part24>
+
+    <part25_1>
+    <text>Сыны Афин, не время прятаться за стенами Великого города!</text>
+    <actions>
+        <action>
+                <_text>Захватим врага</_text>
+                <location>part26_1</location>
+            </action>
+            <action>
+                <_text>Защитим Родину</_text>
+                <location>part26_2</location>
+            </action>
+    </actions>
+    </part25_1>
+
+    <part25_2>
+    <text>Сыны Афин, пришло наше время дать сражение врагу вне этих стен!</text>
+    <actions copy="part25_1">
+    </actions>
+    </part25_2>
+
+    <part26_1>
+    <text>Мы объединимся и разобъем наголову Спарту!</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part27</location>
+            </action>
+    </actions>
+    </part26_1>
+
+    <part26_2>
+    <text>Мы объединимся ради защиты нашей страны!</text>
+    <actions copy="part26_1">
+    </actions>
+    </part26_2>
+
+    <part27>
+    <text>Мы нанесем удар прямо в сердце врага и уничтожим их изнутри!
+Мы лишим их продовольствия и снабжения! Мы лишим их Царя! Мы лишим из жен и детей!</text>
+    <actions>
+        <action>
+                <_text>Нас не остановить</_text>
+                <location>part28_1</location>
+        </action>
+        <action>
+                <_text>Вместе мы сила</_text>
+                <location>part28_2</location>
+        </action>
+    </actions>
+    </part27>
+
+    <part28_1>
+    <text>Никто не сможет остановить наши стройные ряды. И словно ураган мы пройдем по землям Спартанцев, уничтожая и покоряя!</text>
+    <actions copy="part29_1">
+        <action>
+                <text>- Auf!</text>
+                <location>part29_1</location>
+        </action>
+    </actions>
+    </part28_1>
+
+    <part28_2>
+    <text>Совместно с илотами мы сравняем древний город с землей. Афины будут править Элладой! Демократия восторжествует над олигархией раз и навсегда!</text>
+    <actions copy="part28_1">
+    </actions>
+    </part28_2>
+
+    <part29_1>
+    <text>- Auf, Auf, Auf!</text>
+    <actions>
+        <action>
+                <_text>Закончить речь</_text>
+                <location>part29</location>
+        </action>
+    </actions>
+    </part29_1>
+
+    <part29>
+    <text>Народ торжествовал, стук мечей о щиты был слышен в каждом краю великого города. Новость о  рискованному нападению разнеслась быстрее Марафона, заходя в каждый дом. Каждый солдат хотел присоединиться к походу.</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part30</location>
+        </action>
+    </actions>
+    </part29>
+
+    <part30>
+    <text>Тысяча лучших Афинских  воинов на галерах выплыла из Афин, чтобы высадиться и захватить небольшой город Пилос, обладающий удобной гаванью. Оттуда нам откроется прямая дорога на Спарту. Мы нанесем удар в самое сердце врага!</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part31</location>
+        </action>
+    </actions>
+    </part30>
+
+    <part31>
+    <text>Как бы не мудры были Афины, вооруженный крестьянин не сравнится с воинами Спарты, он не может спокойно видеть благополучие чужое, ему не терпится жечь, насиловать и грабить. И я здесь бессилен. Моя армия превращается в горстку мародеров.</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part32</location>
+        </action>
+    </actions>
+    </part31>
+
+    <part32>
+    <text>Гарнизон Пилоса, спешно собранный из периэков с радостными возгласами встречал корабли освободителей.
+Немногие спартанцы были убиты своими же согражданами. Мы взяли город, не потеряв ни одного человека.</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part33</location>
+        </action>
+    </actions>
+    </part32>
+
+    <part33>
+    <text>Но был и другой вопрос. Кто-то предлагал отправить гонцов во все края Спарты, чтобы собрать как можно больше восставших илотов, но это крайне рискованно. Гонцов могут поймать и Спарта будет готова к обороне.</text>
+    <actions>
+        <action>
+                <_text>Отправить гонцов</_text>
+                <location>part34_1</location>
+                <variable name="sbor">1</variable>
+        </action>
+        <action>
+                <_text>Собирать лишь по дороге</_text>
+                <location>part34_2</location>
+                <variable name="sbor">0</variable>
+        </action>
+    </actions>
+    </part33>
+
+    <part34_1>
+    <text>Радостные вестники падения рабского спартанского режима неслись по дорогам Спарты, разнося эти вести в каждую илотскую деревню и призывая местных взяться за оружие и идти на полис.</text>
+    <actions copy="part36_2">
+    </actions>
+    </part34_1>
+
+    <part34_2>
+    <text>Радостное настроение солдат словно улетучилось. К нам охотно присоединялись илоты, но они часто вступали в стычки с моими бойцами из-за грабежей, проблему которых необходимо решить.</text>
+    <actions>
+        <action>
+                <_text>Встать на сторону афинян</_text>
+                <location>part35_2_1</location>
+        </action>
+        <action>
+                <_text>Поддержать илотов</_text>
+                <location>part35_2_2</location>
+        </action>
+    </actions>
+    </part34_2>
+
+    <part35_2_1>
+    <text>Армии нужна провизия, оружие и одежда. Мы вернемся в Афины с богатством.</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part36_2</location>
+        </action>
+    </actions>
+    </part35_2_1>
+
+    <part35_2_2>
+    <text>Сейчас гораздо важнее добиться поддержки местного населения, потому я строго следил за всеми инцидентами грабежей и мародерства в войсках.</text>
+    <actions copy="part35_2_1">
+    </actions>
+    </part35_2_2>
+
+    <part36_2>
+    <text>Может Спарта не была такой ужасной, сколько спасала и организовывала. Давала каждому профессию, от которой он не мог отказаться.</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part37</location>
+        </action>
+    </actions>
+    </part36_2>
+
+    <part37>
+    <text>За день наше разношерстное войско добралось до Спарты.</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part37_1</location>
+                <conditions>
+                    <variable name="sbor">1</variable>
+                </conditions>
+        </action>
+        <action>
+                <_text>Next</_text>
+                <location>part38</location>
+                <conditions>
+                    <variable name="sbor">0</variable>
+                </conditions>
+        </action>
+    </actions>
+    </part37>
+
+    <part37_1>
+    <text>Где нас уже ожидала многотысячная толпа вооруженных крестьян.</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part38</location>
+        </action>
+    </actions>
+    </part37_1>
+
+    <part38>
+    <text>Я повел солдат на город.</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part38_1</location>
+                <conditions>
+                    <variable name="sbor">1</variable>
+                </conditions>
+        </action>
+        <action>
+                <_text>Next</_text>
+                <location>part39</location>
+                <conditions>
+                    <variable name="sbor">0</variable>
+                </conditions>
+        </action>
+    </actions>
+    </part38>
+
+    <part38_1>
+    <text>Где нас уже давно ждали спартанские воители и воительницы всех возрастов, вставшие на защиту родного города.</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part39</location>
+        </action>
+    </actions>
+    </part38_1>
+
+    <part39>
+    <text>Была резня, на которую я не мог смотреть. Солдаты вырезали всех. Даже женщин и детей. Каждый спартанец взялся за оружие. Каждый спартанец погиб.</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part39_1</location>
+                <conditions>
+                    <variable name="sbor">1</variable>
+                </conditions>
+        </action>
+        <action>
+                <_text>Next</_text>
+                <location>part40</location>
+                <conditions>
+                    <variable name="sbor">0</variable>
+                </conditions>
+        </action>
+    </actions>
+    </part39>
+
+    <part39_1>
+    <text>Может Спарта была олицетворением единства народа во имя великой цели, а не тиранией и деспотизмом?</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part40</location>
+        </action>
+    </actions>
+    </part39_1>
+
+    <part40>
+    <text>Мы заняли город и стали ждать. Илоты стали требовать становления нового правительства и отпущения их по домам, а Афиняне настаивали на присоединении Спарты к Афинам.</text>
+    <actions>
+        <action>
+                <_text>Земли Афин</_text>
+                <location>part41_1</location>
+                <variable name="Spartafate">1</variable>
+        </action>
+        <action>
+                <_text>Независимая демократия</_text>
+                <location>part41_2</location>
+                <variable name="Spartafate">2</variable>
+        </action>
+        <action>
+                <_text>Разрушить город</_text>
+                <location>part41_3</location>
+                <variable name="Spartafate">3</variable>
+        </action>
+    </actions>
+    </part40>
+
+    <part41_1>
+    <text>Илоты, ставшие свободными негражданами, восприняли эту новость с опаской. Многие стали разбредаться обратно по домам. Остальные же, настаивавшие на независимости, подняли новое восстание.</text>
+    <actions>
+        <action>
+                <_text>Next</_text>
+                <location>part42</location>
+        </action>
+    </actions>
+    </part41_1>
+
+    <part41_2>
+    <text>Афиняне, приплывшие с вами, выразились резко против этого. В армии пытались поднять переворот, но илоты, присягнувшие на верность новому временному Правителю, подавили его силой оружия. Многие Афиняне вернулись в родные края.</text>
+    <actions copy="part41_1">
+    </actions>
+    </part41_2>
+
+    <part41_3>
+    <text>Афиняне засомневались в целесообразности такого решения, но все же согласились с ним. Спартанцы могут вернуться, но Спарты больше не существует.
+Илоты, больше не принадлежащие единому государству вернулись в свои деревни, испытывая страх перед грядущим.</text>
+    <actions copy="part41_1">
+    </actions>
+    </part41_3>
+
+    <part42>
+    <text>Гонцы несли вести, что осада Афин снята, что оставшийся в живых Царь ведет войска обратно.</text>
+    <actions>
+        <action>
+                <text>Держать город</text>
+                <location>part43_1</location>
+                <conditions>
+                <variable name="Spartafate">1</variable>
+                </conditions>
+        </action>
+        <action>
+                <text>Увести армию</text>
+                <location>part43_1</location>
+                <conditions>
+                <variable name="Spartafate">1</variable>
+                </conditions>
+        </action>
+
+        <action>
+                <text>Держать город</text>
+                <location>part43_1</location>
+                <conditions>
+                <variable name="Spartafate">2</variable>
+                </conditions>
+        </action>
+        <action>
+                <text>Увести армию</text>
+                <location>part43_1</location>
+                <conditions>
+                <variable name="Spartafate">2</variable>
+                </conditions>
+        </action>
+
+        <action>
+                <text>Увести армию</text>
+                <location>part43_2</location>
+                <conditions>
+                <variable name="Spartafate">3</variable>
+                </conditions>
+        </action>
+    </actions>
+    </part42>
+
+    <part43_1>
+    <text>Спартанские войска, вернувшиеся на свои земли и обнарушившие разоренный город, обрушили свой гнев на всех в нем.
+Спарта на много лет откажется от войны, лишившись всех своих богатств и выстроенных режимов.</text>
+    <actions>
+         <action>
+                <text>Вернуться в меню</text>
+                <function>ReturnToMenu</function>
+        </action>
+    </actions>
+    </part43_1>
+
+    <part43_2>
+    <text>Спартанские войска, вернувшиеся на свои земли и обнарушившие разоренный город, были вынуждены начать свой пусть с чистого листа.
+Новая Спарта на много лет откажется от войны, лишившись всех своих богатств и выстроенных режимов.</text>
+    <actions copy="part43_1">
+    </actions>
+    </part43_2>
+</locations>
