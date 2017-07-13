@@ -51,7 +51,6 @@
      <Compile Include="Assets\AdColony\Editor\ADCMenu.cs" />
      <Compile Include="Assets\AdColony\Editor\ADCPluginInfo.cs" />
      <Compile Include="Assets\AdColony\Editor\ADCPostBuildProcessor.cs" />
-     <Compile Include="Assets\Reporter\Editor\ReporterEditor.cs" />
      <None Include="Assets\StreamingAssets\build_info.txt" />
      <None Include="Assets\Plugins\Android\AdColony\AndroidManifest.xml" />
      <None Include="Assets\PlayServicesResolver\proguard-messaging-workaround.txt" />
@@ -60,7 +59,7 @@
      <None Include="Assets\Resources\locations.xml" />
      <None Include="Assets\AdColony\Editor\AndroidManifestTemplate.xml" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>D:/YandexDisk/Sync/Projects/Unity Projects/Novel/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>D:/YandexDisk/Sync/Projects/Unity_Projects/Novel/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
@@ -134,14 +133,14 @@
  <Reference Include="UnityEditor.Facebook.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/Facebook/UnityEditor.Facebook.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="Google.VersionHandler">
- <HintPath>D:/YandexDisk/Sync/Projects/Unity Projects/Novel/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+ <Reference Include="Google.IOSResolver">
+ <HintPath>D:/YandexDisk/Sync/Projects/Unity_Projects/Novel/Assets/PlayServicesResolver/Editor/Google.IOSResolver.dll</HintPath>
  </Reference>
  <Reference Include="Google.JarResolver">
- <HintPath>D:/YandexDisk/Sync/Projects/Unity Projects/Novel/Assets/PlayServicesResolver/Editor/Google.JarResolver.dll</HintPath>
+ <HintPath>D:/YandexDisk/Sync/Projects/Unity_Projects/Novel/Assets/PlayServicesResolver/Editor/Google.JarResolver.dll</HintPath>
  </Reference>
- <Reference Include="Google.IOSResolver">
- <HintPath>D:/YandexDisk/Sync/Projects/Unity Projects/Novel/Assets/PlayServicesResolver/Editor/Google.IOSResolver.dll</HintPath>
+ <Reference Include="Google.VersionHandler">
+ <HintPath>D:/YandexDisk/Sync/Projects/Unity_Projects/Novel/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

@@ -68,7 +68,6 @@ public class MainController : MonoBehaviour {
 		curloc = FindLocation(locname);
 
 		DrawLoc();
-		AdsController.Global.DisplayAd();
 	}
 	
 	// Update is called once per frame

@@ -52,7 +52,6 @@ public class AdsManager : MonoBehaviour {
     void ConfigureAds()
     {
         #if (UNITY_ANDROID || UNITY_IOS)
-
         AdColony.AppOptions appOptions = new AdColony.AppOptions();
         appOptions.AdOrientation = AdColony.AdOrientationType.AdColonyOrientationAll;
 
