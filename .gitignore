@@ -2,18 +2,19 @@
 # Unity generated #
 # =============== #
 [Tt]emp/
+Temp/**
 [Oo]bj/
-[Bb]uild
+[Bb]uild/
 /[Bb]uilds/
 /[Ll]ibrary/
 sysinfo.txt
 /Library
-Library
+Library/**
 *.stackdump
 /Assets/AssetStoreTools*
-*.apk
-*.unitypackage
-*.meta
+**.apk
+**.unitypackage
+**.meta
  
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -31,6 +32,7 @@ Library
 /*.booproj
 .consulo/
 /*.tmp
+**.tmp
 /*.svd
  
 # ============ #
