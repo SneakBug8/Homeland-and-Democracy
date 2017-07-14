@@ -47,11 +47,12 @@ public class MainController : MonoBehaviour {
 
     void Awake () {
         Global = this;
-
-        GlobalController.Global.OnEarlyLoad += Init;
     }
 
     // Use this for initialization
+    void Start () {
+        GlobalController.Global.OnEarlyLoad += Init;
+    }
     void Init () {
         string SceneName;
 
@@ -163,6 +164,7 @@ public class MainController : MonoBehaviour {
             };
         }
 
+        /* Construct ConditionValidator for Checking conditions on location's draw. */
         if (action["condititons"] != null) {
             act.Conditions = new ConditionValidator { };
             if (action["condititons"]["items"] != null) {
@@ -170,21 +172,26 @@ public class MainController : MonoBehaviour {
                     act.Conditions.items.Add (ItemXmlElement.InnerText);
                 }
             }
+            if (action["condititons"]["variables"] != null) {
+                foreach (XmlElement VariableXmlElement in action["condititons"]["variables"].ChildNodes) {
+                    act.Conditions.variables.Add (VariableXmlElement.GetAttribute ("name"), VariableXmlElement.InnerText);
+                }
+            }
             if (action["condititons"]["location"] != null) {
                 act.Conditions.location = action["condititons"]["location"].InnerText;
             }
         }
 
-        if (action["Scene"] != null)
-            act.Scene = action["Scene"].InnerText;
+        if (action["scene"] != null)
+            act.Scene = action["scene"].InnerText;
         if (action["function"] != null)
             act.function = action["function"].InnerText;
-        if (action["UnityScene"] != null)
-            act.UnityScene = action["UnityScene"].InnerText;
-        if (action["Location"] != null)
+        if (action["unityscene"] != null)
+            act.UnityScene = action["unityscene"].InnerText;
+        if (action["location"] != null)
             act.Location = new Vector2 (
-                float.Parse (action["Location"].GetAttribute ("x")),
-                float.Parse (action["Location"].GetAttribute ("y"))
+                float.Parse (action["location"].GetAttribute ("x")),
+                float.Parse (action["location"].GetAttribute ("y"))
             );
 
         return act;
@@ -193,7 +200,10 @@ public class MainController : MonoBehaviour {
     public void DrawScene (Scene loc) {
         // AdsController.Global.LocEvent();
         Debug.Log ("Drawing " + loc.name);
-        OnSceneChanged ();
+
+        if (OnSceneChanged != null) {
+            OnSceneChanged ();
+        }
 
         // Deleting btns from prev loc
         foreach (Button btn in ButtonsParent.GetComponentsInChildren<Button> ()) {
@@ -241,7 +251,9 @@ public class Scene {
     public string startupfunc;
 
     public void Draw () {
-        Functions.Global.SendMessage (startupfunc);
+        if (startupfunc != null) {
+            Functions.Global.SendMessage (startupfunc);
+        }
     }
 }
 
@@ -249,6 +261,7 @@ public class Action {
     public string text;
     public string Scene;
     public string
+
     function;
     public string UnityScene;
     public Vector2 Location;

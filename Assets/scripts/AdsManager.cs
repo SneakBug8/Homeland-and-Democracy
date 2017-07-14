@@ -34,6 +34,9 @@ public class AdsManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        #if UNITY_ANDROID
+        Debug.Log("Android");
+        
         ConfigureAds();
         RegisterForAdsCallbacks();
 
@@ -41,6 +44,7 @@ public class AdsManager : MonoBehaviour {
         {
             StartCoroutine("InfiniteTestAd");
         }
+        #endif
     }
 
     IEnumerator InfiniteTestAd()

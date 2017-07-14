@@ -1,4 +1,4 @@
-<locations>
+<scenes>
   <start>
     <text>С 461 года до н.э. Афины под управлением великого Перикла достигают пика своего могущества, затмевая собой древнюю Спарту. Образованный ими Делосский союз, куда насильно включались многие полисы, начинает угрожать интересам Пелопонесского союза, возглавляемого Спартой.
 Это приводит к величайшей войне в Элладе.
@@ -6,7 +6,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part2</location>
+        <scene>part2</scene>
       </action>
     </actions>
   </start>
@@ -16,7 +16,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part3</location>
+        <scene>part3</scene>
       </action>
     </actions>
   </part2>
@@ -26,7 +26,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part4</location>
+        <scene>part4</scene>
       </action>
     </actions>
   </part3>
@@ -36,7 +36,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part5</location>
+        <scene>part5</scene>
       </action>
     </actions>
   </part4>
@@ -46,7 +46,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part6</location>
+        <scene>part6</scene>
       </action>
     </actions>
   </part5>
@@ -55,11 +55,11 @@
     <actions>
       <action>
         <text>Осмотреться вокруг</text>
-        <location>part7_1</location>
+        <scene>part7_1</scene>
       </action>
       <action>
         <text>Бежать из лагеря к лесу</text>
-        <location>part7_2</location>
+        <scene>part7_2</scene>
       </action>
     </actions>
   </part6>
@@ -68,11 +68,11 @@
     <actions>
       <action>
         <text>Броситься бегом</text>
-        <location>part8_1</location>
+        <scene>part8_1</scene>
       </action>
       <action>
         <text>Продолжить шаг</text>
-        <location>part8_2</location>
+        <scene>part8_2</scene>
       </action>
     </actions>
   </part7_1>
@@ -85,7 +85,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part9</location>
+        <scene>part9</scene>
       </action>
     </actions>
   </part8_1>
@@ -98,11 +98,11 @@
     <actions>
       <action>
         <text>Выкинуть щит</text>
-        <location>part10_1</location>
+        <scene>part10_1</scene>
       </action>
       <action>
         <text>Оставить его</text>
-        <location>part10_2</location>
+        <scene>part10_2</scene>
       </action>
     </actions>
   </part9>
@@ -112,7 +112,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part11_1</location>
+        <scene>part11_1</scene>
       </action>
     </actions>
   </part10_1>
@@ -122,11 +122,11 @@
     <actions>
       <action>
         <_text>Вступить в Афинскую армию</_text>
-        <location>part11</location>
+        <scene>part11</scene>
       </action>
       <action>
         <text>Я не шпион</text>
-        <location>part11</location>
+        <scene>part11</scene>
       </action>
     </actions>
   </part10_2>
@@ -135,12 +135,12 @@
     <actions>
       <action>
         <text>Войти в шатер</text>
-        <location>part14</location>
+        <scene>part14</scene>
         <variable name="VoshelVShater">true</variable>
       </action>
       <action>
         <text>Заглянуть в шатер</text>
-        <location>part14</location>
+        <scene>part14</scene>
         <variable name="VoshelVShater">false</variable>
       </action>
     </actions>
@@ -151,11 +151,11 @@
     <actions>
       <action>
         <_text>- Присягну на верность</_text>
-        <location>part12_1</location>
+        <scene>part12_1</scene>
       </action>
       <action>
         <text>Откинуть оружие</text>
-        <location>part12_2</location>
+        <scene>part12_2</scene>
       </action>
     </actions>
   </part11>
@@ -166,7 +166,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part13</location>
+        <scene>part13</scene>
       </action>
     </actions>
   </part12_1>
@@ -180,7 +180,7 @@
     <actions>
       <action>
         <text>Войти в шатер</text>
-        <location>part14</location>
+        <scene>part14</scene>
         <variable name="VoshelVShater">true</variable>
       </action>
     </actions>
@@ -190,7 +190,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part15</location>
+        <scene>part15</scene>
       </action>
     </actions>
   </part14>
@@ -202,14 +202,14 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part16_1</location>
+        <scene>part16_1</scene>
         <conditions>
           <variable name="VoshelVShater">true</variable>
         </conditions>
       </action>
       <action>
         <_text>Next</_text>
-        <location>part16_2</location>
+        <scene>part16_2</scene>
         <conditions>
           <variable name="VoshelVShater">false</variable>
         </conditions>
@@ -222,7 +222,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part17</location>
+        <scene>part17</scene>
       </action>
     </actions>
   </part16_1>
@@ -231,7 +231,7 @@
     <actions>
       <action>
         <text>Войти в шатер</text>
-        <location>part16_21</location>
+        <scene>part16_21</scene>
       </action>
     </actions>
   </part16_2>
@@ -244,7 +244,7 @@
     <actions>
       <action>
         <_text>Присягнуть</_text>
-        <location>part18</location>
+        <scene>part18</scene>
       </action>
     </actions>
   </part17>
@@ -254,11 +254,11 @@
     <actions>
       <action>
         <text>- Спарта - мой дом</text>
-        <location>part19_1</location>
+        <scene>part19_1</scene>
       </action>
       <action>
         <text>- Из Афин я.</text>
-        <location>part19_2</location>
+        <scene>part19_2</scene>
       </action>
     </actions>
   </part18>
@@ -267,11 +267,11 @@
     <actions>
       <action>
         <_text>Консерватизм</_text>
-        <location>part19_1_1</location>
+        <scene>part19_1_1</scene>
       </action>
       <action>
         <_text>Разлука с семьей</_text>
-        <location>part19_1_2</location>
+        <scene>part19_1_2</scene>
       </action>
     </actions>
   </part19_1>
@@ -281,7 +281,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part20</location>
+        <scene>part20</scene>
       </action>
     </actions>
   </part19_1_1>
@@ -295,7 +295,7 @@
     <actions>
       <action>
         <_text>Родители</_text>
-        <location>part19_21</location>
+        <scene>part19_21</scene>
       </action>
     </actions>
   </part19_2>
@@ -305,7 +305,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part20</location>
+        <scene>part20</scene>
       </action>
     </actions>
   </part19_21>
@@ -316,7 +316,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part21</location>
+        <scene>part21</scene>
       </action>
     </actions>
   </part20>
@@ -325,7 +325,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part22</location>
+        <scene>part22</scene>
       </action>
     </actions>
   </part21>
@@ -334,7 +334,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part23</location>
+        <scene>part23</scene>
       </action>
     </actions>
   </part22>
@@ -343,7 +343,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part24</location>
+        <scene>part24</scene>
       </action>
     </actions>
   </part23>
@@ -352,11 +352,11 @@
     <actions>
       <action>
         <_text>Не прятаться</_text>
-        <location>part25_1</location>
+        <scene>part25_1</scene>
       </action>
       <action>
         <_text>Время сражаться</_text>
-        <location>part25_2</location>
+        <scene>part25_2</scene>
       </action>
     </actions>
   </part24>
@@ -365,11 +365,11 @@
     <actions>
       <action>
         <_text>Захватим врага</_text>
-        <location>part26_1</location>
+        <scene>part26_1</scene>
       </action>
       <action>
         <_text>Защитим Родину</_text>
-        <location>part26_2</location>
+        <scene>part26_2</scene>
       </action>
     </actions>
   </part25_1>
@@ -382,7 +382,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part27</location>
+        <scene>part27</scene>
       </action>
     </actions>
   </part26_1>
@@ -396,11 +396,11 @@
     <actions>
       <action>
         <_text>Нас не остановить</_text>
-        <location>part28_1</location>
+        <scene>part28_1</scene>
       </action>
       <action>
         <_text>Вместе мы сила</_text>
-        <location>part28_2</location>
+        <scene>part28_2</scene>
       </action>
     </actions>
   </part27>
@@ -409,7 +409,7 @@
     <actions copy="part29_1">
       <action>
         <text>- Auf!</text>
-        <location>part29_1</location>
+        <scene>part29_1</scene>
       </action>
     </actions>
   </part28_1>
@@ -422,7 +422,7 @@
     <actions>
       <action>
         <_text>Закончить речь</_text>
-        <location>part29</location>
+        <scene>part29</scene>
       </action>
     </actions>
   </part29_1>
@@ -431,7 +431,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part30</location>
+        <scene>part30</scene>
       </action>
     </actions>
   </part29>
@@ -440,7 +440,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part31</location>
+        <scene>part31</scene>
       </action>
     </actions>
   </part30>
@@ -449,7 +449,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part32</location>
+        <scene>part32</scene>
       </action>
     </actions>
   </part31>
@@ -459,7 +459,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part33</location>
+        <scene>part33</scene>
       </action>
     </actions>
   </part32>
@@ -468,12 +468,12 @@
     <actions>
       <action>
         <_text>Отправить гонцов</_text>
-        <location>part34_1</location>
+        <scene>part34_1</scene>
         <variable name="sbor">1</variable>
       </action>
       <action>
         <_text>Собирать лишь по дороге</_text>
-        <location>part34_2</location>
+        <scene>part34_2</scene>
         <variable name="sbor">0</variable>
       </action>
     </actions>
@@ -487,11 +487,11 @@
     <actions>
       <action>
         <_text>Встать на сторону афинян</_text>
-        <location>part35_2_1</location>
+        <scene>part35_2_1</scene>
       </action>
       <action>
         <_text>Поддержать илотов</_text>
-        <location>part35_2_2</location>
+        <scene>part35_2_2</scene>
       </action>
     </actions>
   </part34_2>
@@ -500,7 +500,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part36_2</location>
+        <scene>part36_2</scene>
       </action>
     </actions>
   </part35_2_1>
@@ -513,7 +513,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part37</location>
+        <scene>part37</scene>
       </action>
     </actions>
   </part36_2>
@@ -522,14 +522,14 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part37_1</location>
+        <scene>part37_1</scene>
         <conditions>
           <variable name="sbor">1</variable>
         </conditions>
       </action>
       <action>
         <_text>Next</_text>
-        <location>part38</location>
+        <scene>part38</scene>
         <conditions>
           <variable name="sbor">0</variable>
         </conditions>
@@ -541,7 +541,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part38</location>
+        <scene>part38</scene>
       </action>
     </actions>
   </part37_1>
@@ -550,14 +550,14 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part38_1</location>
+        <scene>part38_1</scene>
         <conditions>
           <variable name="sbor">1</variable>
         </conditions>
       </action>
       <action>
         <_text>Next</_text>
-        <location>part39</location>
+        <scene>part39</scene>
         <conditions>
           <variable name="sbor">0</variable>
         </conditions>
@@ -569,7 +569,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part39</location>
+        <scene>part39</scene>
       </action>
     </actions>
   </part38_1>
@@ -578,14 +578,14 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part39_1</location>
+        <scene>part39_1</scene>
         <conditions>
           <variable name="sbor">1</variable>
         </conditions>
       </action>
       <action>
         <_text>Next</_text>
-        <location>part40</location>
+        <scene>part40</scene>
         <conditions>
           <variable name="sbor">0</variable>
         </conditions>
@@ -597,7 +597,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part40</location>
+        <scene>part40</scene>
       </action>
     </actions>
   </part39_1>
@@ -606,17 +606,17 @@
     <actions>
       <action>
         <_text>Земли Афин</_text>
-        <location>part41_1</location>
+        <scene>part41_1</scene>
         <variable name="Spartafate">1</variable>
       </action>
       <action>
         <_text>Независимая демократия</_text>
-        <location>part41_2</location>
+        <scene>part41_2</scene>
         <variable name="Spartafate">2</variable>
       </action>
       <action>
         <_text>Разрушить город</_text>
-        <location>part41_3</location>
+        <scene>part41_3</scene>
         <variable name="Spartafate">3</variable>
       </action>
     </actions>
@@ -626,7 +626,7 @@
     <actions>
       <action>
         <_text>Next</_text>
-        <location>part42</location>
+        <scene>part42</scene>
       </action>
     </actions>
   </part41_1>
@@ -644,35 +644,35 @@
     <actions>
       <action>
         <text>Держать город</text>
-        <location>part43_1</location>
+        <scene>part43_1</scene>
         <conditions>
           <variable name="Spartafate">1</variable>
         </conditions>
       </action>
       <action>
         <text>Увести армию</text>
-        <location>part43_1</location>
+        <scene>part43_1</scene>
         <conditions>
           <variable name="Spartafate">1</variable>
         </conditions>
       </action>
       <action>
         <text>Держать город</text>
-        <location>part43_1</location>
+        <scene>part43_1</scene>
         <conditions>
           <variable name="Spartafate">2</variable>
         </conditions>
       </action>
       <action>
         <text>Увести армию</text>
-        <location>part43_1</location>
+        <scene>part43_1</scene>
         <conditions>
           <variable name="Spartafate">2</variable>
         </conditions>
       </action>
       <action>
         <text>Увести армию</text>
-        <location>part43_2</location>
+        <scene>part43_2</scene>
         <conditions>
           <variable name="Spartafate">3</variable>
         </conditions>
@@ -694,4 +694,4 @@
 Новая Спарта на много лет откажется от войны, лишившись всех своих богатств и выстроенных режимов.</text>
     <actions copy="part43_1"></actions>
   </part43_2>
-</locations>
+</scenes>

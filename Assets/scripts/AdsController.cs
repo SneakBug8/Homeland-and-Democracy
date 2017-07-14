@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Analytics;
-#if UNITY_ANDROID
-using UnityEngine.Advertisements;
-#endif
 public class AdsController : MonoBehaviour {
 
 	public static AdsController Global;
@@ -19,12 +16,14 @@ public class AdsController : MonoBehaviour {
 	}
 
 	void Start() {
+		#if UNITY_ANDROID
 		if (PlayerPrefs.GetInt("NoAds")==1) {
 			ShowAds = false;
 			return;
 		}
 
 		MainController.Global.OnSceneChanged += DisplayAd;
+		#endif
 	}
 
 	public void DisplayAd()

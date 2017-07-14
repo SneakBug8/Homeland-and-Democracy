@@ -15,9 +15,15 @@ public class GlobalController : MonoBehaviour {
     }
 
     void Start () {
-        OnEarlyLoad ();
-        OnLoad ();
-        OnLateLoad ();
+        if (OnEarlyLoad!=null) {
+            OnEarlyLoad();
+        }
+        if (OnLoad!=null) {
+            OnLoad();
+        }
+        if (OnLateLoad!=null) {
+            OnLateLoad();
+        }
 
         // Вызов функции инициализации (опционально)
         Functions.Global.SendMessage ("init", SendMessageOptions.DontRequireReceiver);

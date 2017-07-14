@@ -1,85 +1,75 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Xml;
+using UnityEngine;
 
-public class GeographyController : MonoBehaviour
-{
+public class GeographyController : MonoBehaviour {
 
     public static GeographyController Global;
 
-    public Dictionary<Vector2, Location> Map = new Dictionary<Vector2, Location>();
-    public Location CurrentLocation
-    {
-        get
-        {
+    public Dictionary<Vector2, Location> Map = new Dictionary<Vector2, Location> ();
+    public Location CurrentLocation {
+        get {
             return CurrentLocation;
         }
-        set
-        {
-            OnLocationChanged();
+        set {
+            if (OnLocationChanged != null) {
+                OnLocationChanged ();
+            }
             CurrentLocation = value;
         }
     }
 
     public event GlobalController.EventDelegate OnLocationChanged;
 
-    void Awake()
-    {
+    void Awake () {
         Global = this;
-
+    }
+    void Start () {
         GlobalController.Global.OnLoad += Init;
     }
-    void Init()
-    {
-        Map = LoadLocations();
+    void Init () {
+        Map = LoadLocations ();
 
         CurrentLocation = Map[Vector2.zero];
     }
 
-    Dictionary<Vector2, Location> LoadLocations()
-    {
-        Dictionary<Vector2, Location> LocationDictionary = new Dictionary<Vector2, Location>();
+    Dictionary<Vector2, Location> LoadLocations () {
+        Dictionary<Vector2, Location> LocationDictionary = new Dictionary<Vector2, Location> ();
 
-        XmlDocument xDoc = new XmlDocument();
+        XmlNode XmlRoot = MainController.Global.LoadXmlFile ("Locations");
 
-        TextAsset textAsset = (TextAsset)Resources.Load("Locations");
-        xDoc.LoadXml(textAsset.text);
-
-        XmlNode XmlRoot = xDoc.FirstChild;
-
-        foreach (XmlElement locElement in XmlRoot.ChildNodes)
-        {
-            Location TempLocation = new Location
-            {
-                name = locElement.GetAttribute("name") ?? locElement.Name,
-                text = locElement["text"].InnerText,
-                coordinates = new Vector2(
-                    float.Parse(locElement["coordinates"].GetAttribute("x")),
-                    float.Parse(locElement["coordinates"].GetAttribute("y"))
-                    ),
-                startupfunc = locElement["function"].InnerText,
-                actions = MainController.Global.LoadActionsList(locElement["actions"])
+        foreach (XmlElement locElement in XmlRoot.ChildNodes) {
+            Location TempLocation = new Location {
+            name = locElement.GetAttribute ("name") ?? locElement.Name,
+            text = locElement["text"].InnerText,
+            coordinates = new Vector2 (
+            int.Parse (locElement["coordinates"].GetAttribute ("x")),
+            int.Parse (locElement["coordinates"].GetAttribute ("y"))
+            ),
+            startupfunc = (locElement["function"] != null) ? locElement["function"].InnerText : null,
+            actions = MainController.Global.LoadActionsList (locElement["actions"])
             };
 
-            LocationDictionary.Add(TempLocation.coordinates, TempLocation);
+            if (locElement["function"] != null)
+
+                Debug.Log (TempLocation.coordinates.x + "| " + TempLocation.coordinates.y);
+
+            LocationDictionary.Add (TempLocation.coordinates, TempLocation);
         }
 
         return LocationDictionary;
     }
 }
 
-public class Location : Scene
-{
+public class Location : Scene {
     public Vector2 coordinates;
-    public void Load()
-    {
-        Functions.Global.SendMessage(startupfunc);
+    public void Load () {
+        Functions.Global.SendMessage (startupfunc);
     }
 
     /// Assigned Scene controls first text and actions, shown on Location screen.
-    public void GoTo(Vector2 direction)
-    {
+    public void GoTo (Vector2 direction) {
         GeographyController.Global.CurrentLocation = GeographyController.Global.Map[coordinates + direction];
     }
 }

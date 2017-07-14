@@ -1,8 +1,12 @@
 <locations>
 <Qarth>
 <text>Добро пожаловать в Кварт.</text>
-<coordinates x="0", y="0">
+<coordinates x="0" y="0"/>
+<actions>
+      <action>
+        <_text>Начать квест</_text>
+        <scene>part1</scene>
+      </action>
+    </actions>
 </Qarth>
-<location name="Хельмова Падь">
-</location>
 </locations>
