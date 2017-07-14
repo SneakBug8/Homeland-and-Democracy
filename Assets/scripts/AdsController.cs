@@ -11,8 +11,8 @@ public class AdsController : MonoBehaviour {
 
 	public bool ShowAds = true;
 
-	public int LocsGone = 0;
-	public int LocsBetweenAds;
+	public int ScenesGone = 0;
+	public int ScenesBetweenAds;
 
 	void Awake() {
 		Global = this;
@@ -21,19 +21,22 @@ public class AdsController : MonoBehaviour {
 	void Start() {
 		if (PlayerPrefs.GetInt("NoAds")==1) {
 			ShowAds = false;
+			return;
 		}
+
+		MainController.Global.OnSceneChanged += DisplayAd;
 	}
 
 	public void DisplayAd()
 	{
 		#if UNITY_ANDROID
-		LocsGone++;
+		ScenesGone++;
 
-		if (ShowAds && LocsGone > LocsBetweenAds)
+		if (ShowAds && ScenesGone > ScenesBetweenAds)
 		{
 			AdsManager.Global.RequestAd();
 			Debug.Log("Drawing ad.");
-			LocsGone=0;
+			ScenesGone=0;
 		}
 		#endif
 	}

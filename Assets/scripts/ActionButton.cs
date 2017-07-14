@@ -15,7 +15,7 @@ public class ActionButton : MonoBehaviour {
 	}
 
 	public void DeleteSelf() {
-		MainController.Global.curloc.actions.RemoveAt(id);
+		MainController.Global.CurrentScene.actions.RemoveAt(id);
 		Destroy(gameObject);
 	}
 }

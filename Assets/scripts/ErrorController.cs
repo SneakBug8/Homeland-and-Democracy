@@ -10,12 +10,12 @@ public class ErrorController : MonoBehaviour {
 		Global = this;
 	}
 
-	public void NoSuchLocation(string LocationName) {
-		Debug.LogError("No such location exists " + LocationName);
+	public void NoSuchScene(string SceneName) {
+		Debug.LogError("No such scene exists " + SceneName);
 	}
 
-	public void EmptyLocation() {
-		Debug.LogError("Tried to load empty location");
+	public void EmptyScene() {
+		Debug.LogError("Tried to load empty Scene");
 	}
 
 	public void NoActionOnButton(string ButtonText) {

@@ -18,13 +18,13 @@ public class customButton : Editor
 
 		GUILayout.Space(15);
 
-		GUILayout.Label("Name of location to load:");
+		GUILayout.Label("Name of Scene to load:");
 
 		string LocField = GUILayout.TextField("");
 
-        if (GUILayout.Button("Load location"))
+        if (GUILayout.Button("Load Scene"))
         {
-            MainController.Global.ApplyLocation(LocField);
+            MainController.Global.LoadAndDrawScene(LocField);
         }
     }
 
@@ -39,12 +39,16 @@ public class MainController : MonoBehaviour {
 	void Awake() {
 		Global = this;
 	}
-	public Text LocatonText;
+	public Text SceneText;
 
-	public Location curloc;
+	public Scene CurrentScene;
 	public Transform ButtonsParent;
 
 	public GameObject ButtonPref;
+
+	public delegate void SomeDelegate();
+
+	public event SomeDelegate OnSceneChanged;
 
 	XmlNode XmlRoot;
 
@@ -52,22 +56,22 @@ public class MainController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		string locname;
+		string SceneName;
 
 		#if UNITY_EDITOR
-		locname = "start";
+		SceneName = "start";
 		# else
-		locname = SavesSystem.Global.Get("loc") ?? "start";
+		SceneName = SavesSystem.Global.Get("loc") ?? "start";
 		# endif
 
 		// Вызов функции инициализации (опционально)
 		Functions.Global.SendMessage("init",SendMessageOptions.DontRequireReceiver);
 
-		Debug.Log("Starting loc: " + locname);
+		Debug.Log("Starting loc: " + SceneName);
 
-		curloc = FindLocation(locname);
+		CurrentScene = LoadScene(SceneName);
 
-		DrawLoc();
+		DrawScene();
 	}
 	
 	// Update is called once per frame
@@ -75,55 +79,87 @@ public class MainController : MonoBehaviour {
 		
 	}
 
-	public void ApplyLocation(string locname) {
-		if (locname=="") {
-			ErrorController.Global.EmptyLocation();
+	public void LoadAndDrawScene(string SceneName) {
+		if (SceneName=="") {
+			ErrorController.Global.EmptyScene();
 		}
 
-		curloc = FindLocation(locname);
-		DrawLoc();
+		CurrentScene = LoadScene(SceneName);
+		DrawScene();
 	}
 
-	public Location FindLocation(string locname) {
-		if (locname=="") {
-			ErrorController.Global.EmptyLocation();
-			return new Location{};
+	public Scene LoadScene(string SceneName) {
+		return LoadScene(SceneName, false);
+	}
+
+	public Scene LoadScene(string SceneName, bool IsLocation) {
+		/* Throw error if scene name not provided */
+		if (SceneName=="") {
+			ErrorController.Global.EmptyScene();
+			return new Scene{};
 		}
 
-
+		/* Prepare to make scene */
 		if (XmlRoot == null) {
-			XmlDocument xDoc = new XmlDocument();
-
-			TextAsset textAsset = (TextAsset) Resources.Load("locations"); 
-			xDoc.LoadXml (textAsset.text);
-
-			XmlRoot = xDoc.FirstChild;
+			XmlRoot = LoadXmlFile("Scenes");
 		}
 		
-		XmlElement locelement = XmlRoot[locname];
+		XmlElement SceneXmlElement = XmlRoot[SceneName];
 
-		if (locelement==null) {
-			ErrorController.Global.NoSuchLocation(locname);
-			return new Location();
+		/* Throw error if such scene don't exist */
+		if (SceneXmlElement==null) {
+			ErrorController.Global.NoSuchScene(SceneName);
+			return new Scene();
 		}
 
-		Location loc = new Location() {
-			text = nextlocact + locelement["text"].InnerText,
-			name = locname
+		Scene loc = new Scene() {
+			text = nextlocact + SceneXmlElement["text"].InnerText,
+			name = SceneName
 		};
 
-		if (locelement["function"]!=null) {
-			Functions.Global.SendMessage(locelement["function"].InnerText);
+		/* Copy Scene's Actions if Copy attribute provided. */
+		if (SceneXmlElement["actions"].HasAttribute("copy")) {
+			loc.actions = LoadScene(SceneXmlElement["actions"].GetAttribute("copy")).actions;
 		}
 
-		if (locelement["actions"].HasAttribute("copy")) {
-			loc.actions = FindLocation(locelement["actions"].GetAttribute("copy")).actions;
+
+		if (SceneXmlElement["function"]!=null) {
+			loc.startupfunc = SceneXmlElement["function"].InnerText;
 		}
+		
+		/* Constructing actions' list */
+		loc.actions = LoadActionsList(SceneXmlElement["actions"]);
+		
+		return loc;
+	}
 
-		foreach (XmlElement action in locelement["actions"].ChildNodes) {
+	XmlNode LoadXmlFile(string ResourceName) {
+			XmlDocument xDoc = new XmlDocument();
 
+			TextAsset textAsset = (TextAsset) Resources.Load("Scenes"); 
+			xDoc.LoadXml (textAsset.text);
+
+			XmlNode FirstNode = xDoc.FirstChild;
+			
+			return FirstNode;
+	}
+
+	public List<Action> LoadActionsList(XmlElement actionsparent) {
+		List<Action> actions = new List<Action>();
+
+		foreach (XmlElement ActionXmlElement in actionsparent.ChildNodes) {
+			Action act = LoadAction(ActionXmlElement);
+			if (act != new Action{}) {
+			actions.Add(act);
+			}
+		}
+		return actions;
+	}
+
+	public Action LoadAction(XmlElement action) {
 			Action act = new Action {};
 
+			/* If _text provided - don't include action's name in next location */
 			if (action["_text"]!=null) {
 				act.text = action["_text"].InnerText;
 				act.DoNotWriteToLoc = true;
@@ -131,6 +167,7 @@ public class MainController : MonoBehaviour {
 				act.text = action["text"].InnerText;
 			}
 
+			/* Construct ValueChange for applying variable's value on press. */
 			if (action["variable"]!=null) {
 				act.value = new ValueChange {
 					name = action["variable"].GetAttribute("name"),
@@ -138,48 +175,43 @@ public class MainController : MonoBehaviour {
 				};
 			}
 
-				if (action["conditions"]!=null) {
-					if (action["conditions"]["item"]!=null) {
-						if (!GlobalController.Global.items.list.Contains(action["conditions"]["item"].InnerText)) {
-							continue;
-						}
-					}
-					if (action["conditions"]["variable"]!=null) {
-						if (SavesSystem.Global.Get(action["conditions"]["variable"].GetAttribute("name"))!=action["conditions"]["variable"].InnerText) {
-							continue;
-						}
-					}
-				}
+			if (action["Scene"]!=null)
+				act.Scene = action["Scene"].InnerText;
+			if (action["function"]!=null)
+				act.function = action["function"].InnerText;
+			if (action["UnityScene"]!=null)
+				act.UnityScene = action["UnityScene"].InnerText;
+			if (action["Location"]!=null)
+				act.Location = new Vector2(
+					float.Parse(action["Location"].GetAttribute("x")),
+					float.Parse(action["Location"].GetAttribute("y"))
+					);
 
-				if (action["location"]!=null)
-					act.location = action["location"].InnerText;
-				if (action["function"]!=null)
-					act.function = action["function"].InnerText;
-				if (action["scene"]!=null)
-					act.scene = action["scene"].InnerText;
-
-			loc.actions.Add(act);
-		}
-        
-		return loc;
+			return act;
 	}
 
-	public void DrawLoc(Location loc) {
+	public void DrawScene(Scene loc) {
 		// AdsController.Global.LocEvent();
 		Debug.Log("Drawing "+loc.name);
-		AdsController.Global.DisplayAd();
+		OnSceneChanged();
 
 		// Deleting btns from prev loc
 		foreach (Button btn in ButtonsParent.GetComponentsInChildren<Button>()) {
 			Destroy(btn.gameObject);
 		}
 
-		LocatonText.text = loc.text;
+		loc.Draw();
+
+		SceneText.text = loc.text;
 
 		// Rendering new buttons
 		int buttonid = 0;
 
 		foreach (Action act in loc.actions) {
+			if (!act.MetConditions()) {
+				continue;
+			}
+
 			act.button = Instantiate(ButtonPref,ButtonsParent.transform.position,Quaternion.identity).GetComponent<Button>();
 
 			act.button.transform.SetParent(ButtonsParent);
@@ -193,35 +225,71 @@ public class MainController : MonoBehaviour {
 		}
 	}
 
-	public void DrawLoc() {
-		DrawLoc(curloc);
+	public void DrawScene() {
+		DrawScene(CurrentScene);
 	}
 
 	public void OnButtonClick(int id) {
-		curloc.actions[id].Execute();
+		CurrentScene.actions[id].Execute();
 	}
 }
 
-public class Location {
+public class Scene {
 	public string name;
 	public string text;
 	public List<Action> actions = new List<Action>();
+	public string startupfunc;
+
+	public void Draw() {
+		Functions.Global.SendMessage(startupfunc);
+	}
 }
 
 public class Action {
 	public string text;
-	public string location;
+	public string Scene;
 	public string function;
-	public string scene;
+	public string UnityScene;
+	public Vector2 Location;
 
 	public ValueChange value;
 	
 	public bool DoNotWriteToLoc = false;
 	public Button button;
 
+	public XmlElement ConditionsXmlElement;
+
+	public bool MetConditions() {
+		if (ConditionsXmlElement!=null) {
+				/* Check if Player has needed items */
+				if (ConditionsXmlElement["item"]!=null) {
+					if (!GlobalController.Global.items.list.Contains(ConditionsXmlElement["item"].InnerText)) {
+						return false;
+					}
+				}
+				/* Check if Variable has needed value */
+				if (ConditionsXmlElement["variable"]!=null) {
+					if (SavesSystem.Global.Get(ConditionsXmlElement["variable"].GetAttribute("name"))!=ConditionsXmlElement["variable"].InnerText) {
+						return false;
+					}
+				}
+				/* Check if Player is in needed location */
+				if (ConditionsXmlElement["location"]!=null) {
+					if (GeographyController.Global.CurrentLocation.name != ConditionsXmlElement["location"].InnerText) {
+						return false;
+					}
+				}
+			}
+		return true;
+	}
+
 	public void Execute() {
 		if (value!=null) {
 			value.Execute();
+		}
+
+		if (Location!=Vector2.zero) {
+			GeographyController.Global.CurrentLocation = GeographyController.Global.Map[Location];
 		}
 
 		if (!DoNotWriteToLoc) {
@@ -237,16 +305,16 @@ public class Action {
 			MainController.Global.gameObject.GetComponent<Functions>().SendMessage(function);
 		}
 
-		if (location!=null) {
-			SavesSystem.Global.Set("loc",location);
+		if (Scene!=null) {
+			SavesSystem.Global.Set("loc",Scene);
 
-			MainController.Global.ApplyLocation(location);
+			MainController.Global.LoadAndDrawScene(Scene);
 
 			return;
 		}
 
-		if (scene!=null) {
-			SceneManager.LoadScene(scene);
+		if (UnityScene!=null) {
+			SceneManager.LoadScene(UnityScene);
 		}
 
 		ErrorController.Global.NoActionOnButton(text);
@@ -254,10 +322,11 @@ public class Action {
 
 	public void Remove() {
 		GameObject.Destroy(button);
-		MainController.Global.curloc.actions.Remove(this);
+		MainController.Global.CurrentScene.actions.Remove(this);
 	}
 }
 
+/// Class used to change some variable's value on ActionButton press
 public class ValueChange {
 	public string name;
 	public string value;
