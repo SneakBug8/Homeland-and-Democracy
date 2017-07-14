@@ -54,7 +54,9 @@
      <None Include="Assets\StreamingAssets\build_info.txt" />
      <None Include="Assets\Plugins\Android\AdColony\AndroidManifest.xml" />
      <None Include="Assets\Resources\Scenes.xml" />
+     <None Include="Assets\Resources\Locations.xml" />
      <None Include="Assets\PlayServicesResolver\proguard-messaging-workaround.txt" />
+     <None Include="Assets\Resources\Items.xml" />
      <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver.txt" />
      <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
      <None Include="Assets\AdColony\Editor\AndroidManifestTemplate.xml" />

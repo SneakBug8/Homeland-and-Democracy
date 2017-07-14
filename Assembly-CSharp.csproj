@@ -65,14 +65,14 @@
      <Compile Include="Assets\scripts\GlobalController.cs" />
      <Compile Include="Assets\scripts\MainController.cs" />
      <Compile Include="Assets\scripts\MenuButton.cs" />
-     <Compile Include="Assets\scripts\MinigameButton.cs" />
-     <Compile Include="Assets\scripts\MinigameController.cs" />
      <Compile Include="Assets\scripts\ResetSaves.cs" />
      <Compile Include="Assets\scripts\SavesSystem.cs" />
      <None Include="Assets\StreamingAssets\build_info.txt" />
      <None Include="Assets\Plugins\Android\AdColony\AndroidManifest.xml" />
      <None Include="Assets\Resources\Scenes.xml" />
+     <None Include="Assets\Resources\Locations.xml" />
      <None Include="Assets\PlayServicesResolver\proguard-messaging-workaround.txt" />
+     <None Include="Assets\Resources\Items.xml" />
      <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver.txt" />
      <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
      <None Include="Assets\AdColony\Editor\AndroidManifestTemplate.xml" />
