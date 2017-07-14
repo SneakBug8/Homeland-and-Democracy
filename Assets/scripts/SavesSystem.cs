@@ -1,73 +1,72 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 
 public class SavesSystem : MonoBehaviour {
 
-	public static SavesSystem Global;
+    public static SavesSystem Global;
 
-	void Awake() {
-		Global = this;
-		DontDestroyOnLoad(gameObject);
-	}
+    void Awake () {
+        Global = this;
+        DontDestroyOnLoad (gameObject);
+    }
 
-	public void Set(string key, string value)
-	{
-		PlayerPrefs.SetString(key,value);
-		Save();
-	}
+    public void Set (string key, string value) {
+        PlayerPrefs.SetString (key, value);
+        Save ();
+    }
 
-	public string Get(string key)
-	{
-		if (!PlayerPrefs.HasKey(key))
-			return null;
-		return PlayerPrefs.GetString(key, null);
-	}
+    public string Get (string key) {
+        if (!PlayerPrefs.HasKey (key))
+            return null;
+        return PlayerPrefs.GetString (key, null);
+    }
 
-	public void Save() {
-		PlayerPrefs.Save();
-	}
-	
-	/*** Inventory System ***/
-	public static List<string> Items {
-		get {
-			return SavesSystem.Global.GetItems();
-		}
-		set {
-			Items = value;
-			SavesSystem.Global.SaveItems(Items);
-		}
-	}
+    public void Save () {
+        PlayerPrefs.Save ();
+    }
 
-	public void SaveItems(List<string> items) {
-		PlayerPrefs.SetInt("items_count",Items.Count);
+    /*** Inventory System ***/
+    public static Dictionary<string, int> Items {
+        get {
+            if (Items == null) {
+                Items = SavesSystem.Global.GetItems ();
+            }
+            return Items;
+        }
+        set {
+            Items = value;
+            SavesSystem.Global.SaveItems (Items);
+        }
+    }
 
-		int itemid = 0;
-		foreach (string item in Items) {
-			itemid = Items.IndexOf(item);
-			Set("items_"+itemid,Items[itemid]);
-		}
-	}
-	public List<string> GetItems() {
-		List<string> items = new List<string>();
+    public void SaveItems (Dictionary<string, int> items) {
+        foreach (KeyValuePair<string, int> item in items) {
+            PlayerPrefs.SetInt ("items_" + item.Key, item.Value);
+        }
+    }
+    public Dictionary<string, int> GetItems () {
+        Dictionary<string, int> items = new Dictionary<string, int> ();
 
-		if (!PlayerPrefs.HasKey("items_count"))
-			return items;
-		
-		int count = PlayerPrefs.GetInt("items_count");
+        XmlNode ItemsNode = MainController.Global.LoadXmlFile ("Items");
 
-		for (int i=0; i<count; i++) {
-			items.Add(Get("items_"+i));
-		}
-		return items;
-	}
+        foreach (XmlElement Item in ItemsNode.ChildNodes) {
+            int itemcount = PlayerPrefs.GetInt ("items_" + Item.InnerText);
+            if (itemcount != 0) {
+                items.Add (Item.InnerText, itemcount);
+            }
+        }
 
-	/*** Removing Data ***/
-	public void ResetSaves() {
-		PlayerPrefs.DeleteAll();
-	}
+        return items;
+    }
 
-	public void ResetItems() {
-		SaveItems(new List<string>());
-	}
+    /*** Removing Data ***/
+    public void ResetSaves () {
+        PlayerPrefs.DeleteAll ();
+    }
+
+    public void ResetItems () {
+        SaveItems (new Dictionary<string, int>());
+    }
 }

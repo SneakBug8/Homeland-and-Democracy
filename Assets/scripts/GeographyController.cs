@@ -22,17 +22,19 @@ public class GeographyController : MonoBehaviour
         }
     }
 
-    public delegate void SomeDelegate();
-
-    public event SomeDelegate OnLocationChanged;
+    public event GlobalController.EventDelegate OnLocationChanged;
 
     void Awake()
     {
         Global = this;
+
+        GlobalController.Global.OnLoad += Init;
     }
-    void Start()
+    void Init()
     {
         Map = LoadLocations();
+
+        CurrentLocation = Map[Vector2.zero];
     }
 
     Dictionary<Vector2, Location> LoadLocations()
@@ -50,7 +52,8 @@ public class GeographyController : MonoBehaviour
         {
             Location TempLocation = new Location
             {
-                name = locElement["text"].InnerText,
+                name = locElement.GetAttribute("name") ?? locElement.Name,
+                text = locElement["text"].InnerText,
                 coordinates = new Vector2(
                     float.Parse(locElement["coordinates"].GetAttribute("x")),
                     float.Parse(locElement["coordinates"].GetAttribute("y"))
@@ -68,7 +71,6 @@ public class GeographyController : MonoBehaviour
 
 public class Location : Scene
 {
-    public string description;
     public Vector2 coordinates;
     public void Load()
     {
