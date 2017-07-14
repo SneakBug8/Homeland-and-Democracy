@@ -59,6 +59,7 @@
      <Compile Include="Assets\scripts\ActionButton.cs" />
      <Compile Include="Assets\scripts\AdsController.cs" />
      <Compile Include="Assets\scripts\AdsManager.cs" />
+     <Compile Include="Assets\scripts\DynamicText.cs" />
      <Compile Include="Assets\scripts\ErrorController.cs" />
      <Compile Include="Assets\scripts\Functions.cs" />
      <Compile Include="Assets\scripts\GeographyController.cs" />

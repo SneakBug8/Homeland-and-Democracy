@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 906606842}
   - component: {fileID: 906606844}
   - component: {fileID: 906606845}
+  - component: {fileID: 906606846}
   m_Layer: 5
   m_Name: GlobalController
   m_TagString: Untagged
@@ -400,8 +401,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowAds: 1
-  LocsGone: 0
-  LocsBetweenAds: 2
+  ScenesGone: 0
+  ScenesBetweenAds: 0
 --- !u!114 &906606844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,7 +425,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab21fa5ff9e77344a92cd0c66f85a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestMode: 1
+  TestMode: 0
+--- !u!114 &906606846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906606839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c63fe00dd839c74982d75eeec4929bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &987250275
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480fafd53e5328f419584a787cb8d48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LocatonText: {fileID: 1973665924}
+  SceneText: {fileID: 1973665924}
   ButtonsParent: {fileID: 987250276}
   ButtonPref: {fileID: 1754890466280478, guid: d2443cc99b206824bb3efba687a3304c, type: 2}
   nextlocact: 

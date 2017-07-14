@@ -34,6 +34,7 @@ Library/**
 /*.tmp
 **.tmp
 /*.svd
+.vscode/
  
 # ============ #
 # OS generated #

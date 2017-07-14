@@ -4,7 +4,7 @@
 <coordinates x="0" y="0"/>
 <actions>
       <action>
-        <_text>Начать квест</_text>
+        <text>Начать квест</text>
         <scene>part1</scene>
       </action>
     </actions>

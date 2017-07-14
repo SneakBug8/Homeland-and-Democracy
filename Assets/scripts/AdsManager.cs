@@ -6,7 +6,9 @@ public class AdsManager : MonoBehaviour {
 
     public static AdsManager Global;
 
+    #if UNITY_ANDROID
     string[] zoneIds = new string[] { "vz71ad6974431c45ecb4", "vzc2700ed0702e49e184"};
+    #endif
 
     public bool TestMode;
 
@@ -36,7 +38,7 @@ public class AdsManager : MonoBehaviour {
     void Start () {
         #if UNITY_ANDROID
         Debug.Log("Android");
-        
+
         ConfigureAds();
         RegisterForAdsCallbacks();
 

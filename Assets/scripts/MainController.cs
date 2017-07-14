@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
@@ -89,9 +90,12 @@ public class MainController : MonoBehaviour {
             return new Scene { };
         }
 
+
+
         /* Prepare to make scene */
         if (XmlRoot == null) {
-            XmlRoot = LoadXmlFile ("Scenes");
+            string ResourceName = (IsLocation) ? "Scenes" : "Locations";
+            XmlRoot = LoadXmlFile (ResourceName);
         }
 
         XmlElement SceneXmlElement = XmlRoot[SceneName];
@@ -146,102 +150,90 @@ public class MainController : MonoBehaviour {
     }
 
     public Action LoadAction (XmlElement action) {
-        Action act = new Action { };
+        Action act = new Action {
+            Scene = (action["scene"] != null) ? action["scene"].InnerText : null,
+                func = (action["function"] != null) ? action["scene"].InnerText : null,
+                UnityScene = (action["unityscene"] != null) ? action["unityscene"].InnerText : null,
+                Location = (action["location"] != null) ? new Vector2 (float.Parse (action["location"].GetAttribute ("x")), float.Parse (action["location"].GetAttribute ("y"))) : Vector2.zero,
+                text = action["text"].InnerText,
+                /* If notshowonnextloc provided - don't include action's name in next location */
+                DoNotWriteToLoc = action["text"].HasAttribute ("notshowonnextloc"),
+                /* Construct ValueChange for applying variable's value on press. */
+                value = (action["variable"] != null) ? new ValueChange {
+                    name = action["variable"].GetAttribute ("name"),
+                        value = action["variable"].InnerText
+                } : null,
+                Conditions = (action["condititions"] != null) ? new ConditionValidator {
+                    variables = new Func<Dictionary<string, string>> (() => {
+                            Dictionary<string, string> dict = new Dictionary<string, string> ();
+                            if (action["condititions"]["variables"] != null) {
+                                foreach (XmlElement VariableXmlElement in action["condititions"]["variables"].ChildNodes) {
+                                    dict.Add (VariableXmlElement.GetAttribute ("name"), VariableXmlElement.InnerText);
+                                }
+                            }
+                            return dict;
+                        }) (),
+                        location = (action["condititions"]["location"] != null) ? action["condititions"]["location"].InnerText : null,
+                        items = new Func<List<string>> (() => {
+                            List<string> list = new List<string> ();
+                            if (action["conditions"]["items"] != null) {
+                                foreach (XmlElement ItemXmlElement in action["conditions"]["items"].ChildNodes) {
+                                    list.Add (ItemXmlElement.InnerText);
+                                }
+                            }
+                            return list;
+                        }) ()
+                } : null,
+        };
 
-        /* If _text provided - don't include action's name in next location */
-        if (action["_text"] != null) {
-            act.text = action["_text"].InnerText;
-            act.DoNotWriteToLoc = true;
-        } else {
-            act.text = action["text"].InnerText;
-        }
+    return act;
+}
 
-        /* Construct ValueChange for applying variable's value on press. */
-        if (action["variable"] != null) {
-            act.value = new ValueChange {
-            name = action["variable"].GetAttribute ("name"),
-            value = action["variable"].InnerText
-            };
-        }
+public void DrawScene (Scene loc) {
+    if (loc == null) {
+        return;
+    }
+    // AdsController.Global.LocEvent();
+    Debug.Log ("Drawing " + loc.name);
 
-        /* Construct ConditionValidator for Checking conditions on location's draw. */
-        if (action["condititons"] != null) {
-            act.Conditions = new ConditionValidator { };
-            if (action["condititons"]["items"] != null) {
-                foreach (XmlElement ItemXmlElement in action["condiitons"]["items"].ChildNodes) {
-                    act.Conditions.items.Add (ItemXmlElement.InnerText);
-                }
-            }
-            if (action["condititons"]["variables"] != null) {
-                foreach (XmlElement VariableXmlElement in action["condititons"]["variables"].ChildNodes) {
-                    act.Conditions.variables.Add (VariableXmlElement.GetAttribute ("name"), VariableXmlElement.InnerText);
-                }
-            }
-            if (action["condititons"]["location"] != null) {
-                act.Conditions.location = action["condititons"]["location"].InnerText;
-            }
-        }
-
-        if (action["scene"] != null)
-            act.Scene = action["scene"].InnerText;
-        if (action["function"] != null)
-            act.function = action["function"].InnerText;
-        if (action["unityscene"] != null)
-            act.UnityScene = action["unityscene"].InnerText;
-        if (action["location"] != null)
-            act.Location = new Vector2 (
-                float.Parse (action["location"].GetAttribute ("x")),
-                float.Parse (action["location"].GetAttribute ("y"))
-            );
-
-        return act;
+    if (OnSceneChanged != null) {
+        OnSceneChanged ();
     }
 
-    public void DrawScene (Scene loc) {
-        // AdsController.Global.LocEvent();
-        Debug.Log ("Drawing " + loc.name);
+    // Deleting btns from prev loc
+    foreach (Button btn in ButtonsParent.GetComponentsInChildren<Button> ()) {
+        Destroy (btn.gameObject);
+    }
+    SceneText.text = DynamicText.Parse (loc.text);
 
-        if (OnSceneChanged != null) {
-            OnSceneChanged ();
+    // Rendering new buttons
+    int buttonid = 0;
+
+    foreach (Action act in loc.actions) {
+        if (!act.ConditionsMet ()) {
+            continue;
         }
 
-        // Deleting btns from prev loc
-        foreach (Button btn in ButtonsParent.GetComponentsInChildren<Button> ()) {
-            Destroy (btn.gameObject);
-        }
+        act.button = Instantiate (ButtonPref, ButtonsParent.transform.position, Quaternion.identity).GetComponent<Button> ();
 
-        loc.Draw ();
+        act.button.transform.SetParent (ButtonsParent);
+        act.button.transform.localScale = new Vector3 (1, 1, 1);
 
-        SceneText.text = loc.text;
+        act.button.gameObject.GetComponentInChildren<Text> ().text = act.text;
 
-        // Rendering new buttons
-        int buttonid = 0;
+        act.button.gameObject.GetComponent<ActionButton> ().id = buttonid;
 
-        foreach (Action act in loc.actions) {
-            if (!act.ConditionsMet ()) {
-                continue;
-            }
-
-            act.button = Instantiate (ButtonPref, ButtonsParent.transform.position, Quaternion.identity).GetComponent<Button> ();
-
-            act.button.transform.SetParent (ButtonsParent);
-            act.button.transform.localScale = new Vector3 (1, 1, 1);
-
-            act.button.gameObject.GetComponentInChildren<Text> ().text = act.text;
-
-            act.button.gameObject.GetComponent<ActionButton> ().id = buttonid;
-
-            buttonid++;
-        }
+        buttonid++;
     }
+}
 
-    public void DrawScene () {
-        DrawScene (CurrentScene);
-    }
+public void DrawScene () {
+    DrawScene (CurrentScene);
+}
 
-    public void OnButtonClick (int id) {
-        CurrentScene.actions[id].Execute ();
-    }
+public void OnButtonClick (int id) {
+    CurrentScene.actions[id].Execute();
+}
 }
 
 public class Scene {
@@ -254,18 +246,17 @@ public class Scene {
         if (startupfunc != null) {
             Functions.Global.SendMessage (startupfunc);
         }
+        MainController.Global.DrawScene (this);
     }
 }
 
 public class Action {
     public string text;
     public string Scene;
-    public string
-
-    function;
+    public string func;
     public string UnityScene;
     public Vector2 Location;
-
+    // Remake for multiple variables support
     public ValueChange value;
 
     public bool DoNotWriteToLoc = false;
@@ -299,20 +290,22 @@ public class Action {
             MainController.Global.nextlocact = "";
         }
 
-        if (function != null) {
-            MainController.Global.gameObject.GetComponent<Functions> ().SendMessage (function);
+        if (func != null) {
+            MainController.Global.gameObject.GetComponent<Functions> ().SendMessage (func);
         }
 
         if (Scene != null) {
             SavesSystem.Global.Set ("loc", Scene);
 
-            MainController.Global.LoadAndDrawScene (Scene);
+            MainController.Global.LoadScene (Scene).Draw ();
 
             return;
         }
 
         if (UnityScene != null) {
             SceneManager.LoadScene (UnityScene);
+
+            return;
         }
 
         ErrorController.Global.NoActionOnButton (text);

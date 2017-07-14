@@ -8,15 +8,18 @@ public class GeographyController : MonoBehaviour {
     public static GeographyController Global;
 
     public Dictionary<Vector2, Location> Map = new Dictionary<Vector2, Location> ();
+
+    private Location currentlocation;
     public Location CurrentLocation {
         get {
-            return CurrentLocation;
+            return currentlocation;
         }
         set {
             if (OnLocationChanged != null) {
                 OnLocationChanged ();
             }
-            CurrentLocation = value;
+            currentlocation = value;
+            currentlocation.Draw ();
         }
     }
 
@@ -39,16 +42,20 @@ public class GeographyController : MonoBehaviour {
 
         XmlNode XmlRoot = MainController.Global.LoadXmlFile ("Locations");
 
+        
+
         foreach (XmlElement locElement in XmlRoot.ChildNodes) {
+            Scene TempScene = MainController.Global.LoadScene(locElement.Name,true);
+
             Location TempLocation = new Location {
-            name = locElement.GetAttribute ("name") ?? locElement.Name,
-            text = locElement["text"].InnerText,
+            name = TempScene.name,
+            text = TempScene.text,
             coordinates = new Vector2 (
             int.Parse (locElement["coordinates"].GetAttribute ("x")),
             int.Parse (locElement["coordinates"].GetAttribute ("y"))
             ),
-            startupfunc = (locElement["function"] != null) ? locElement["function"].InnerText : null,
-            actions = MainController.Global.LoadActionsList (locElement["actions"])
+            startupfunc = TempScene.startupfunc,
+            actions = TempScene.actions
             };
 
             if (locElement["function"] != null)
@@ -64,11 +71,6 @@ public class GeographyController : MonoBehaviour {
 
 public class Location : Scene {
     public Vector2 coordinates;
-    public void Load () {
-        Functions.Global.SendMessage (startupfunc);
-    }
-
-    /// Assigned Scene controls first text and actions, shown on Location screen.
     public void GoTo (Vector2 direction) {
         GeographyController.Global.CurrentLocation = GeographyController.Global.Map[coordinates + direction];
     }

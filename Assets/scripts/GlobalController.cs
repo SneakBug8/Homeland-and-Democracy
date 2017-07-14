@@ -15,6 +15,7 @@ public class GlobalController : MonoBehaviour {
     }
 
     void Start () {
+
         if (OnEarlyLoad!=null) {
             OnEarlyLoad();
         }
