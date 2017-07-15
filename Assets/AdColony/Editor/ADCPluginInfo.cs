@@ -6,7 +6,7 @@ namespace AdColony.Editor {
         #if UNITY_5_6
         public const UnityEditor.AndroidSdkVersions RequiredAndroidVersion = UnityEditor.AndroidSdkVersions.AndroidApiLevel16;
         #else
-        public const UnityEditor.AndroidSdkVersions RequiredAndroidVersion = UnityEditor.AndroidSdkVersions.AndroidApiLevel14;
+        public const UnityEditor.AndroidSdkVersions RequiredAndroidVersion = UnityEditor.AndroidSdkVersions.AndroidApiLevel16;
         #endif
         public const string Name = "AdColony";
     }

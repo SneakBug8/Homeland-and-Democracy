@@ -27,8 +27,7 @@ public class GeographyController : MonoBehaviour {
 
     void Awake () {
         Global = this;
-    }
-    void Start () {
+
         GlobalController.Global.OnLoad += Init;
     }
     void Init () {
@@ -58,10 +57,7 @@ public class GeographyController : MonoBehaviour {
             actions = TempScene.actions
             };
 
-            if (locElement["function"] != null)
-
-                Debug.Log (TempLocation.coordinates.x + "| " + TempLocation.coordinates.y);
-
+            Debug.Log (TempLocation.coordinates.x + "| " + TempLocation.coordinates.y);
             LocationDictionary.Add (TempLocation.coordinates, TempLocation);
         }
 

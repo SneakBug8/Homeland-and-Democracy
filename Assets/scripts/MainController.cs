@@ -42,16 +42,11 @@ public class MainController : MonoBehaviour {
 
     public event GlobalController.EventDelegate OnSceneChanged;
 
-    XmlNode XmlRoot;
-
     public string nextlocact = "";
 
     void Awake () {
         Global = this;
-    }
 
-    // Use this for initialization
-    void Start () {
         GlobalController.Global.OnEarlyLoad += Init;
     }
     void Init () {
@@ -93,10 +88,10 @@ public class MainController : MonoBehaviour {
 
 
         /* Prepare to make scene */
-        if (XmlRoot == null) {
-            string ResourceName = (IsLocation) ? "Scenes" : "Locations";
-            XmlRoot = LoadXmlFile (ResourceName);
-        }
+        // if (XmlRoot == null) {
+            string ResourceName = (IsLocation) ? "Locations" : "Scenes";
+            XmlNode XmlRoot = LoadXmlFile (ResourceName);
+        // }
 
         XmlElement SceneXmlElement = XmlRoot[SceneName];
 
@@ -157,7 +152,7 @@ public class MainController : MonoBehaviour {
                 Location = (action["location"] != null) ? new Vector2 (float.Parse (action["location"].GetAttribute ("x")), float.Parse (action["location"].GetAttribute ("y"))) : Vector2.zero,
                 text = action["text"].InnerText,
                 /* If notshowonnextloc provided - don't include action's name in next location */
-                DoNotWriteToLoc = action["text"].HasAttribute ("notshowonnextloc"),
+                DoNotWriteToLoc = (action["text"]["notshowonnextloc"] != null) ? true : false,
                 /* Construct ValueChange for applying variable's value on press. */
                 value = (action["variable"] != null) ? new ValueChange {
                     name = action["variable"].GetAttribute ("name"),
@@ -214,14 +209,14 @@ public void DrawScene (Scene loc) {
             continue;
         }
 
-        act.button = Instantiate (ButtonPref, ButtonsParent.transform.position, Quaternion.identity).GetComponent<Button> ();
+        GameObject actionbutton = Instantiate (ButtonPref, ButtonsParent.transform.position, Quaternion.identity); //.GetComponent<Button>();
 
-        act.button.transform.SetParent (ButtonsParent);
-        act.button.transform.localScale = new Vector3 (1, 1, 1);
+        actionbutton.transform.SetParent (ButtonsParent);
+        actionbutton.transform.localScale = new Vector3 (1, 1, 1);
 
-        act.button.gameObject.GetComponentInChildren<Text> ().text = act.text;
+        actionbutton.gameObject.GetComponentInChildren<Text> ().text = act.text;
 
-        act.button.gameObject.GetComponent<ActionButton> ().id = buttonid;
+        actionbutton.GetComponent<ActionButton>().action = act;
 
         buttonid++;
     }
@@ -229,10 +224,6 @@ public void DrawScene (Scene loc) {
 
 public void DrawScene () {
     DrawScene (CurrentScene);
-}
-
-public void OnButtonClick (int id) {
-    CurrentScene.actions[id].Execute();
 }
 }
 
@@ -250,7 +241,7 @@ public class Scene {
     }
 }
 
-public class Action {
+public class Action{
     public string text;
     public string Scene;
     public string func;
@@ -258,8 +249,7 @@ public class Action {
     public Vector2 Location;
     // Remake for multiple variables support
     public ValueChange value;
-
-    public bool DoNotWriteToLoc = false;
+    public bool DoNotWriteToLoc;
     public Button button;
 
     public ConditionValidator Conditions;

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class DynamicText {
     public static string Parse(string text) {
+        if (text==null && text=="") {
+            return "";
+        }
         if (text.Contains("{") && text.Contains("}")) {
             int OpeningIndex = text.IndexOf("{") + 1;
             int ClosingIndex = text.IndexOf("}");

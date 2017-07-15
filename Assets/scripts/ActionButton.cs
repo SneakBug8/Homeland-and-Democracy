@@ -5,17 +5,16 @@ using UnityEngine.UI;
 
 public class ActionButton : MonoBehaviour {
 
-	public int id;
+	public Action action;
 
 	void Start () {
 		gameObject.GetComponent<Button>().onClick.AddListener(OnClick);
 	}
 	public void OnClick () {
-		MainController.Global.OnButtonClick(id);
+		action.Execute();
 	}
 
 	public void DeleteSelf() {
-		MainController.Global.CurrentScene.actions.RemoveAt(id);
 		Destroy(gameObject);
 	}
 }

@@ -5,7 +5,7 @@
 <actions>
       <action>
         <text>Начать квест</text>
-        <scene>part1</scene>
+        <scene>part2</scene>
       </action>
     </actions>
 </Qarth>

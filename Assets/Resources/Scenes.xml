@@ -5,7 +5,7 @@
 </text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part2</scene>
       </action>
     </actions>
@@ -15,7 +15,7 @@
 </text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part3</scene>
       </action>
     </actions>
@@ -25,7 +25,7 @@
 </text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part4</scene>
       </action>
     </actions>
@@ -35,7 +35,7 @@
 </text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part5</scene>
       </action>
     </actions>
@@ -45,7 +45,7 @@
 </text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part6</scene>
       </action>
     </actions>
@@ -84,7 +84,7 @@
     <text>Кто-то заметил меня и поднял людей, развернувшись, я видел как кто-то натягивал тетиву, но меня приказали отпустить. Чувствую, что даром это не пройдет.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part9</scene>
       </action>
     </actions>
@@ -111,7 +111,7 @@
     Мне предстоит найти великого Перикла, дабы присягнуть ему на верность и вступить в ряды Афинских солдат.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part11_1</scene>
       </action>
     </actions>
@@ -121,7 +121,7 @@
 - Что тебе нужно, спартанец? - Голос демократа был холоден и груб, но не источал злости или ненависти.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Вступить в Афинскую армию</text>
+        <text><notshowonnextloc/>Вступить в Афинскую армию</text>
         <scene>part11</scene>
       </action>
       <action>
@@ -150,7 +150,7 @@
 - С чего бы нам тебе верить, что ты не шпион?</text>
     <actions>
       <action>
-        <text notshowonnextloc>- Присягну на верность</text>
+        <text><notshowonnextloc/>- Присягну на верность</text>
         <scene>part12_1</scene>
       </action>
       <action>
@@ -165,7 +165,7 @@
     - Что ж, мы поверим на слово спартанскому юноше и отведем тебя к Стратегу.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part13</scene>
       </action>
     </actions>
@@ -189,7 +189,7 @@
     <text>Двое офицеров стояли пред Периклом, они бурно что-то обсуждали, прислушавшись к их словам, стало ясно, что темой разговора стало численное и военное превосходство Пелопонессцев в грядущем сражении.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part15</scene>
       </action>
     </actions>
@@ -201,14 +201,14 @@
 - Ты отступишь вместе со мной, союзный офицер, поскольку здесь я Главнокомандующий. Афины - пристанище логики и философии, и наша сила в нашем флоте.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part16_1</scene>
         <conditions>
           <variable name="VoshelVShater">true</variable>
         </conditions>
       </action>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part16_2</scene>
         <conditions>
           <variable name="VoshelVShater">false</variable>
@@ -221,7 +221,7 @@
 И вот, остались мы наедине.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part17</scene>
       </action>
     </actions>
@@ -243,7 +243,7 @@
     <text>Он не выглядел каким-то величайшим, нет, взгляд его был полон мудрости, а тело украшено боевыми шрамами, оставленными врагом. Он был выправлен и горд, но горд благородно, горд за свою державу. Был благоразумен и жесток, но жестокость его была оправдана.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Присягнуть</text>
+        <text><notshowonnextloc/>Присягнуть</text>
         <scene>part18</scene>
       </action>
     </actions>
@@ -266,11 +266,11 @@
     <text>- Прямая правда не всего есть хорошо, друг мой. Что же побудило тебя предать свой народ?</text>
     <actions>
       <action>
-        <text notshowonnextloc>Консерватизм</text>
+        <text><notshowonnextloc/>Консерватизм</text>
         <scene>part19_1_1</scene>
       </action>
       <action>
-        <text notshowonnextloc>Разлука с семьей</text>
+        <text><notshowonnextloc/>Разлука с семьей</text>
         <scene>part19_1_2</scene>
       </action>
     </actions>
@@ -280,7 +280,7 @@
 - В тебе говорит политик, но исправлять дела такие нужно изнутри, а не снаружи.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part20</scene>
       </action>
     </actions>
@@ -294,7 +294,7 @@
     <text>- Да как же ты попал сюда, если войско покинуло Афины недели две назад?</text>
     <actions>
       <action>
-        <text notshowonnextloc>Родители</text>
+        <text><notshowonnextloc/>Родители</text>
         <scene>part19_21</scene>
       </action>
     </actions>
@@ -304,7 +304,7 @@
 - А не сбежал ли ты часом?</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part20</scene>
       </action>
     </actions>
@@ -315,7 +315,7 @@
 Ступай, возьми свой новый щит и замени перья на своем шлеме, знающий человек догадается, где он был произведен.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part21</scene>
       </action>
     </actions>
@@ -324,7 +324,7 @@
     <text>Мы долго отступали. Гонцы несли благие вести с моря, а Спартанская армия шла по пятам, не отставая ни на шаг. Перикл хотел, чтобы я лично доставил послание Совету Четырехсот, когда мы увидим стены Афин на горизонте. И вот, этот день пришел.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part22</scene>
       </action>
     </actions>
@@ -333,7 +333,7 @@
     <text>Когда я прибыл в город и отдал послание, то узнал печальные вести. Войска Перикла потерпели сокрушительное поражение, а остатки сбежали за стены. Началась долгая осада, голод и страх пришли в этот город. Я впервые был в Афинах, но узреть величие этого полиса, увы, не мог. Что-то терзало мое сердце.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part23</scene>
       </action>
     </actions>
@@ -342,7 +342,7 @@
     <text>Пришли вести о смерти Перикла от начинавшейся в городе чумы. Это стало последней каплей для меня. Я больше не могу сидеть сложа руки. Я произнесу речь и соберу народ на бой.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part24</scene>
       </action>
     </actions>
@@ -351,11 +351,11 @@
     <text>Сыны Афин,</text>
     <actions>
       <action>
-        <text notshowonnextloc>Не прятаться</text>
+        <text><notshowonnextloc/>Не прятаться</text>
         <scene>part25_1</scene>
       </action>
       <action>
-        <text notshowonnextloc>Время сражаться</text>
+        <text><notshowonnextloc/>Время сражаться</text>
         <scene>part25_2</scene>
       </action>
     </actions>
@@ -364,11 +364,11 @@
     <text>Сыны Афин, не время прятаться за стенами Великого города!</text>
     <actions>
       <action>
-        <text notshowonnextloc>Захватим врага</text>
+        <text><notshowonnextloc/>Захватим врага</text>
         <scene>part26_1</scene>
       </action>
       <action>
-        <text notshowonnextloc>Защитим Родину</text>
+        <text><notshowonnextloc/>Защитим Родину</text>
         <scene>part26_2</scene>
       </action>
     </actions>
@@ -381,7 +381,7 @@
     <text>Мы объединимся и разобъем наголову Спарту!</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part27</scene>
       </action>
     </actions>
@@ -395,11 +395,11 @@
 Мы лишим их продовольствия и снабжения! Мы лишим их Царя! Мы лишим из жен и детей!</text>
     <actions>
       <action>
-        <text notshowonnextloc>Нас не остановить</text>
+        <text><notshowonnextloc/>Нас не остановить</text>
         <scene>part28_1</scene>
       </action>
       <action>
-        <text notshowonnextloc>Вместе мы сила</text>
+        <text><notshowonnextloc/>Вместе мы сила</text>
         <scene>part28_2</scene>
       </action>
     </actions>
@@ -421,7 +421,7 @@
     <text>- Auf, Auf, Auf!</text>
     <actions>
       <action>
-        <text notshowonnextloc>Закончить речь</text>
+        <text><notshowonnextloc/>Закончить речь</text>
         <scene>part29</scene>
       </action>
     </actions>
@@ -430,7 +430,7 @@
     <text>Народ торжествовал, стук мечей о щиты был слышен в каждом краю великого города. Новость о  рискованному нападению разнеслась быстрее Марафона, заходя в каждый дом. Каждый солдат хотел присоединиться к походу.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part30</scene>
       </action>
     </actions>
@@ -439,7 +439,7 @@
     <text>Тысяча лучших Афинских  воинов на галерах выплыла из Афин, чтобы высадиться и захватить небольшой город Пилос, обладающий удобной гаванью. Оттуда нам откроется прямая дорога на Спарту. Мы нанесем удар в самое сердце врага!</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part31</scene>
       </action>
     </actions>
@@ -448,7 +448,7 @@
     <text>Как бы не мудры были Афины, вооруженный крестьянин не сравнится с воинами Спарты, он не может спокойно видеть благополучие чужое, ему не терпится жечь, насиловать и грабить. И я здесь бессилен. Моя армия превращается в горстку мародеров.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part32</scene>
       </action>
     </actions>
@@ -458,7 +458,7 @@
 Немногие спартанцы были убиты своими же согражданами. Мы взяли город, не потеряв ни одного человека.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part33</scene>
       </action>
     </actions>
@@ -467,12 +467,12 @@
     <text>Но был и другой вопрос. Кто-то предлагал отправить гонцов во все края Спарты, чтобы собрать как можно больше восставших илотов, но это крайне рискованно. Гонцов могут поймать и Спарта будет готова к обороне.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Отправить гонцов</text>
+        <text><notshowonnextloc/>Отправить гонцов</text>
         <scene>part34_1</scene>
         <variable name="sbor">1</variable>
       </action>
       <action>
-        <text notshowonnextloc>Собирать лишь по дороге</text>
+        <text><notshowonnextloc/>Собирать лишь по дороге</text>
         <scene>part34_2</scene>
         <variable name="sbor">0</variable>
       </action>
@@ -486,11 +486,11 @@
     <text>Радостное настроение солдат словно улетучилось. К нам охотно присоединялись илоты, но они часто вступали в стычки с моими бойцами из-за грабежей, проблему которых необходимо решить.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Встать на сторону афинян</text>
+        <text><notshowonnextloc/>Встать на сторону афинян</text>
         <scene>part35_2_1</scene>
       </action>
       <action>
-        <text notshowonnextloc>Поддержать илотов</text>
+        <text><notshowonnextloc/>Поддержать илотов</text>
         <scene>part35_2_2</scene>
       </action>
     </actions>
@@ -499,7 +499,7 @@
     <text>Армии нужна провизия, оружие и одежда. Мы вернемся в Афины с богатством.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part36_2</scene>
       </action>
     </actions>
@@ -512,7 +512,7 @@
     <text>Может Спарта не была такой ужасной, сколько спасала и организовывала. Давала каждому профессию, от которой он не мог отказаться.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part37</scene>
       </action>
     </actions>
@@ -521,14 +521,14 @@
     <text>За день наше разношерстное войско добралось до Спарты.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part37_1</scene>
         <conditions>
           <variable name="sbor">1</variable>
         </conditions>
       </action>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part38</scene>
         <conditions>
           <variable name="sbor">0</variable>
@@ -540,7 +540,7 @@
     <text>Где нас уже ожидала многотысячная толпа вооруженных крестьян.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part38</scene>
       </action>
     </actions>
@@ -549,14 +549,14 @@
     <text>Я повел солдат на город.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part38_1</scene>
         <conditions>
           <variable name="sbor">1</variable>
         </conditions>
       </action>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part39</scene>
         <conditions>
           <variable name="sbor">0</variable>
@@ -568,7 +568,7 @@
     <text>Где нас уже давно ждали спартанские воители и воительницы всех возрастов, вставшие на защиту родного города.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part39</scene>
       </action>
     </actions>
@@ -577,14 +577,14 @@
     <text>Была резня, на которую я не мог смотреть. Солдаты вырезали всех. Даже женщин и детей. Каждый спартанец взялся за оружие. Каждый спартанец погиб.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part39_1</scene>
         <conditions>
           <variable name="sbor">1</variable>
         </conditions>
       </action>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part40</scene>
         <conditions>
           <variable name="sbor">0</variable>
@@ -596,7 +596,7 @@
     <text>Может Спарта была олицетворением единства народа во имя великой цели, а не тиранией и деспотизмом?</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part40</scene>
       </action>
     </actions>
@@ -605,17 +605,17 @@
     <text>Мы заняли город и стали ждать. Илоты стали требовать становления нового правительства и отпущения их по домам, а Афиняне настаивали на присоединении Спарты к Афинам.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Земли Афин</text>
+        <text><notshowonnextloc/>Земли Афин</text>
         <scene>part41_1</scene>
         <variable name="Spartafate">1</variable>
       </action>
       <action>
-        <text notshowonnextloc>Независимая демократия</text>
+        <text><notshowonnextloc/>Независимая демократия</text>
         <scene>part41_2</scene>
         <variable name="Spartafate">2</variable>
       </action>
       <action>
-        <text notshowonnextloc>Разрушить город</text>
+        <text><notshowonnextloc/>Разрушить город</text>
         <scene>part41_3</scene>
         <variable name="Spartafate">3</variable>
       </action>
@@ -625,7 +625,7 @@
     <text>Илоты, ставшие свободными негражданами, восприняли эту новость с опаской. Многие стали разбредаться обратно по домам. Остальные же, настаивавшие на независимости, подняли новое восстание.</text>
     <actions>
       <action>
-        <text notshowonnextloc>Next</text>
+        <text><notshowonnextloc/>Next</text>
         <scene>part42</scene>
       </action>
     </actions>
