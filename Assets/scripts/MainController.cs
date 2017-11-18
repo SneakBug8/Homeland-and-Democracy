@@ -216,6 +216,8 @@ public void DrawScene (Scene loc) {
 
         actionbutton.gameObject.GetComponentInChildren<Text> ().text = act.text;
 
+        act.button = actionbutton.GetComponent<Button>();
+
         actionbutton.GetComponent<ActionButton>().action = act;
 
         buttonid++;

@@ -8,6 +8,10 @@ public class GeographyController : MonoBehaviour {
     public static GeographyController Global;
 
     public Dictionary<Vector2, Location> Map = new Dictionary<Vector2, Location> ();
+    
+    public delegate void LocationChangeDelegate(Location From, Location To);
+
+    public event LocationChangeDelegate OnLocationChanged;
 
     private Location currentlocation;
     public Location CurrentLocation {
@@ -16,14 +20,14 @@ public class GeographyController : MonoBehaviour {
         }
         set {
             if (OnLocationChanged != null) {
-                OnLocationChanged ();
+                OnLocationChanged (currentlocation, value);
             }
             currentlocation = value;
             currentlocation.Draw ();
         }
     }
 
-    public event GlobalController.EventDelegate OnLocationChanged;
+    
 
     void Awake () {
         Global = this;
